@@ -21,35 +21,42 @@ And then, import the file `#import "NVDate.h"`.
     
 #### Full date of today
 
-    NVDate *date = [[NVDate alloc] initUsingToday];
-    NSLog(@"today is : %@", [date stringValue]);
-    
-    // today is : Wednesday, February 5, 2014, 4:56:35 PM Western Indonesia Time
+```objectivec
+NVDate *date = [[NVDate alloc] initUsingToday];
+NSLog(@"today is : %@", [date stringValue]);
+
+// today is : Wednesday, February 5, 2014, 4:56:35 PM Western Indonesia Time
+```
 
 #### Last day's date of next 2 months
-    
-    NVDate *date = [[NVDate alloc] initUsingToday];
-    [date nextMonths:2];
-    [date lastDayOfMonth];
-    NSLog(@"next 2 months from today is : %@", [date stringValueWithFormat:@"dd-MM-yyyy"]);
-    
-    // next 2 months from today is : 30-04-2014
+
+```objectivec
+NVDate *date = [[NVDate alloc] initUsingToday];
+[date nextMonths:2];
+[date lastDayOfMonth];
+NSLog(@"next 2 months from today is : %@", [date stringValueWithFormat:@"dd-MM-yyyy"]);
+
+// next 2 months from today is : 30-04-2014
+```
 
 #### Next 8 days from last 2 months
     
-    NVDate *date = date = [[[[[NVDate alloc] initUsingToday] previousMonths:2] firstDayOfMonth] nextWeek];
-    date.dateFormatUsingString = @"yyyy-MM-dd HH:mm:ss";
-    NSLog(@"second week of 2 months ago is : %@", [date stringValue]);
-    
-    // second week of 2 months ago is : 2013-12-08 17:03:36
+```objectivec
+NVDate *date = date = [[[[[NVDate alloc] initUsingToday] previousMonths:2] firstDayOfMonth] nextWeek];
+date.dateFormatUsingString = @"yyyy-MM-dd HH:mm:ss";
+NSLog(@"second week of 2 months ago is : %@", [date stringValue]);
+
+// second week of 2 months ago is : 2013-12-08 17:03:36
+```
 
 #### Detect if yesterday is friday
 
-    BOOL isFriday = [[[[NVDate alloc] initUsingToday] previousDay] isCurrentDayName:NVDayUnitFriday];
-    NSLog(@"is yesterday was friday ? %@", isFriday ? @"yes" : @"no");
-    
-    // is yesterday was friday ? no
+```objectivec
+BOOL isFriday = [[[[NVDate alloc] initUsingToday] previousDay] isCurrentDayName:NVDayUnitFriday];
+NSLog(@"is yesterday was friday ? %@", isFriday ? @"yes" : @"no");
 
+// is yesterday was friday ? no
+```
 
 Documentation
 ======
