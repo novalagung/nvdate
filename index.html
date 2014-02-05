@@ -53,46 +53,46 @@ And then, import the file <code>#import "NVDate.h"</code>.</p>
 <h4>
 <a name="full-date-of-today" class="anchor" href="#full-date-of-today"><span class="octicon octicon-link"></span></a>Full date of today</h4>
 
-<pre><code>NVDate *date = [[NVDate alloc] initUsingToday];
-NSLog(@"today is : %@", [date stringValue]);
+<div class="highlight highlight-objectivec"><pre><span class="n">NVDate</span> <span class="o">*</span><span class="n">date</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NVDate</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">initUsingToday</span><span class="p">];</span>
+<span class="n">NSLog</span><span class="p">(</span><span class="s">@"today is : %@"</span><span class="p">,</span> <span class="p">[</span><span class="n">date</span> <span class="n">stringValue</span><span class="p">]);</span>
 
-// today is : Wednesday, February 5, 2014, 4:56:35 PM Western Indonesia Time
-</code></pre>
+<span class="c1">// today is : Wednesday, February 5, 2014, 4:56:35 PM Western Indonesia Time</span>
+</pre></div>
 
 <h4>
 <a name="last-days-date-of-next-2-months" class="anchor" href="#last-days-date-of-next-2-months"><span class="octicon octicon-link"></span></a>Last day's date of next 2 months</h4>
 
-<pre><code>NVDate *date = [[NVDate alloc] initUsingToday];
-[date nextMonths:2];
-[date lastDayOfMonth];
-NSLog(@"next 2 months from today is : %@", [date stringValueWithFormat:@"dd-MM-yyyy"]);
+<div class="highlight highlight-objectivec"><pre><span class="n">NVDate</span> <span class="o">*</span><span class="n">date</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NVDate</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">initUsingToday</span><span class="p">];</span>
+<span class="p">[</span><span class="n">date</span> <span class="n">nextMonths</span><span class="o">:</span><span class="mi">2</span><span class="p">];</span>
+<span class="p">[</span><span class="n">date</span> <span class="n">lastDayOfMonth</span><span class="p">];</span>
+<span class="n">NSLog</span><span class="p">(</span><span class="s">@"next 2 months from today is : %@"</span><span class="p">,</span> <span class="p">[</span><span class="n">date</span> <span class="n">stringValueWithFormat</span><span class="o">:</span><span class="s">@"dd-MM-yyyy"</span><span class="p">]);</span>
 
-// next 2 months from today is : 30-04-2014
-</code></pre>
+<span class="c1">// next 2 months from today is : 30-04-2014</span>
+</pre></div>
 
 <h4>
 <a name="next-8-days-from-last-2-months" class="anchor" href="#next-8-days-from-last-2-months"><span class="octicon octicon-link"></span></a>Next 8 days from last 2 months</h4>
 
-<pre><code>NVDate *date = date = [[[[[NVDate alloc] initUsingToday] previousMonths:2] firstDayOfMonth] nextWeek];
-date.dateFormatUsingString = @"yyyy-MM-dd HH:mm:ss";
-NSLog(@"second week of 2 months ago is : %@", [date stringValue]);
+<div class="highlight highlight-objectivec"><pre><span class="n">NVDate</span> <span class="o">*</span><span class="n">date</span> <span class="o">=</span> <span class="n">date</span> <span class="o">=</span> <span class="p">[[[[[</span><span class="n">NVDate</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">initUsingToday</span><span class="p">]</span> <span class="n">previousMonths</span><span class="o">:</span><span class="mi">2</span><span class="p">]</span> <span class="n">firstDayOfMonth</span><span class="p">]</span> <span class="n">nextWeek</span><span class="p">];</span>
+<span class="n">date</span><span class="p">.</span><span class="n">dateFormatUsingString</span> <span class="o">=</span> <span class="s">@"yyyy-MM-dd HH:mm:ss"</span><span class="p">;</span>
+<span class="n">NSLog</span><span class="p">(</span><span class="s">@"second week of 2 months ago is : %@"</span><span class="p">,</span> <span class="p">[</span><span class="n">date</span> <span class="n">stringValue</span><span class="p">]);</span>
 
-// second week of 2 months ago is : 2013-12-08 17:03:36
-</code></pre>
+<span class="c1">// second week of 2 months ago is : 2013-12-08 17:03:36</span>
+</pre></div>
 
 <h4>
 <a name="detect-if-yesterday-is-friday" class="anchor" href="#detect-if-yesterday-is-friday"><span class="octicon octicon-link"></span></a>Detect if yesterday is friday</h4>
 
-<pre><code>BOOL isFriday = [[[[NVDate alloc] initUsingToday] previousDay] isCurrentDayName:NVDayUnitFriday];
-NSLog(@"is yesterday was friday ? %@", isFriday ? @"yes" : @"no");
+<div class="highlight highlight-objectivec"><pre><span class="kt">BOOL</span> <span class="n">isFriday</span> <span class="o">=</span> <span class="p">[[[[</span><span class="n">NVDate</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">initUsingToday</span><span class="p">]</span> <span class="n">previousDay</span><span class="p">]</span> <span class="n">isCurrentDayName</span><span class="o">:</span><span class="n">NVDayUnitFriday</span><span class="p">];</span>
+<span class="n">NSLog</span><span class="p">(</span><span class="s">@"is yesterday was friday ? %@"</span><span class="p">,</span> <span class="n">isFriday</span> <span class="o">?</span> <span class="s">@"yes"</span> <span class="o">:</span> <span class="s">@"no"</span><span class="p">);</span>
 
-// is yesterday was friday ? no
-</code></pre>
+<span class="c1">// is yesterday was friday ? no</span>
+</pre></div>
 
 <h1>
 <a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h1>
 
-<p>Currently documentaion page isn't ready</p>
+<p><a href="https://github.com/novalagung/NVDate/wiki/API-Reference">https://github.com/novalagung/NVDate/wiki/API-Reference</a></p>
 
 <h1>
 <a name="contribution" class="anchor" href="#contribution"><span class="octicon octicon-link"></span></a>Contribution</h1>
