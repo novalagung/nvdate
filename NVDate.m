@@ -12,6 +12,7 @@
     NSDateFormatter *_dateFormatter;
     NSCalendar *_calendar;
     NSDate *_date;
+    NSCalendarUnit _dateTimeCalendarUnit;
 }
 
 - (id)init {
@@ -23,6 +24,8 @@
         _calendar = [NSCalendar currentCalendar];
         
         _date = [[NSDate alloc] init];
+        
+        _dateTimeCalendarUnit = (NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit);
     }
     return self;
 }
@@ -189,7 +192,7 @@
 }
 
 - (instancetype)firstDayOfMonth {
-    NSDateComponents *dateComponents = [_calendar components:NSCalendarCalendarUnit fromDate:_date];
+    NSDateComponents *dateComponents = [_calendar components:_dateTimeCalendarUnit fromDate:_date];
     dateComponents.day = 1;
     _date = [_calendar dateFromComponents:dateComponents];
     
@@ -200,7 +203,7 @@
     NSDateComponents *dateComponents;
     NSDate *date;
     
-    dateComponents = [_calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:_date];
+    dateComponents = [_calendar components:_dateTimeCalendarUnit fromDate:_date];
     dateComponents.day = 1;
     date = [_calendar dateFromComponents:dateComponents];
     dateComponents = [[NSDateComponents alloc] init];
