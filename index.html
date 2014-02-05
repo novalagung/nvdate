@@ -32,9 +32,81 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h1>
-<a name="nvdate" class="anchor" href="#nvdate"><span class="octicon octicon-link"></span></a>NVDate</h1>
+<a name="introduction" class="anchor" href="#introduction"><span class="octicon octicon-link"></span></a>Introduction</h1>
 
-<p>make date manipulation easier in iOS</p>
+<p><strong>NVDate</strong> is library for handling <code>NSDate</code> manipulation in iOS Development.</p>
+
+<h1>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h1>
+
+<p><strong>NVDate</strong> have many features that helps to solve your problem.</p>
+
+<ul>
+<li>Capable to do lot of date manipulation task</li>
+<li>User friendly naming convention</li>
+<li>
+<em>Chainable</em> functions</li>
+<li>Easy to use</li>
+<li>Open Source !</li>
+</ul><h1>
+<a name="simple-example" class="anchor" href="#simple-example"><span class="octicon octicon-link"></span></a>Simple Example</h1>
+
+<p>You need to copy both <code>NVDate.h</code> and <code>NVDate.m</code> files to your project. 
+And then, import the file <code>#import "NVDate.h"</code>.</p>
+
+<h4>
+<a name="full-date-of-today" class="anchor" href="#full-date-of-today"><span class="octicon octicon-link"></span></a>Full date of today</h4>
+
+<pre><code>NVDate *date = [[NVDate alloc] initUsingToday];
+NSLog(@"today is : %@", [date stringValue]);
+
+// today is : Wednesday, February 5, 2014, 4:56:35 PM Western Indonesia Time
+</code></pre>
+
+<h4>
+<a name="last-days-date-of-next-2-months" class="anchor" href="#last-days-date-of-next-2-months"><span class="octicon octicon-link"></span></a>Last day's date of next 2 months</h4>
+
+<pre><code>NVDate *date = [[NVDate alloc] initUsingToday];
+[date nextMonths:2];
+[date lastDayOfMonth];
+NSLog(@"next 2 months from today is : %@", [date stringValueWithFormat:@"dd-MM-yyyy"]);
+
+// next 2 months from today is : 30-04-2014
+</code></pre>
+
+<h4>
+<a name="next-8-days-from-last-2-months" class="anchor" href="#next-8-days-from-last-2-months"><span class="octicon octicon-link"></span></a>Next 8 days from last 2 months</h4>
+
+<pre><code>NVDate *date = date = [[[[[NVDate alloc] initUsingToday] previousMonths:2] firstDayOfMonth] nextWeek];
+date.dateFormatUsingString = @"yyyy-MM-dd HH:mm:ss";
+NSLog(@"second week of 2 months ago is : %@", [date stringValue]);
+
+// second week of 2 months ago is : 2013-12-08 17:03:36
+</code></pre>
+
+<h4>
+<a name="detect-if-yesterday-is-friday" class="anchor" href="#detect-if-yesterday-is-friday"><span class="octicon octicon-link"></span></a>Detect if yesterday is friday</h4>
+
+<pre><code>BOOL isFriday = [[[[NVDate alloc] initUsingToday] previousDay] isCurrentDayName:NVDayUnitFriday];
+NSLog(@"is yesterday was friday ? %@", isFriday ? @"yes" : @"no");
+
+// is yesterday was friday ? no
+</code></pre>
+
+<h1>
+<a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h1>
+
+<p>Currently documentaion page isn't ready</p>
+
+<h1>
+<a name="contribution" class="anchor" href="#contribution"><span class="octicon octicon-link"></span></a>Contribution</h1>
+
+<p>Feel free to add contribution to this project by <code>fork</code> -&gt; <code>pull request</code></p>
+
+<h1>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h1>
+
+<p><a href="http://novalagung.mit-license.org/">http://novalagung.mit-license.org/</a></p>
       </section>
     </div>
 
