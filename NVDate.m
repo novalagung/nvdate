@@ -1,6 +1,5 @@
 //
 //  NVDate.m
-//  NDate
 //
 //  Created by Noval Agung Prayogo on 2/5/14.
 //  Copyright (c) 2014 Noval Agung Prayogo. All rights reserved.
@@ -25,7 +24,7 @@
         
         _date = [[NSDate alloc] init];
         
-        _dateTimeCalendarUnit = (NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit);
+        _dateTimeCalendarUnit = (NSYearCalendarUnit | NSMonthCalendarUnit | NSWeekdayCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit);
     }
     return self;
 }
@@ -49,6 +48,10 @@
         _date = [NSDate dateWithTimeIntervalSinceReferenceDate:seconds];
     }
     return self;
+}
+
+- (NSDate *)date {
+    return _date;
 }
 
 - (NSString *)stringValue {
@@ -214,6 +217,46 @@
     _date = [_calendar dateByAddingComponents:dateComponents toDate:date options:0];
     
     return self;
+}
+
+- (instancetype)previousDayOfDayName:(NVDayUnit)dayUnit {
+    int currentWeekDay = [_calendar components:_dateTimeCalendarUnit fromDate:_date].weekday;
+    
+    if (currentWeekDay == dayUnit)
+        return [self previousWeek];
+    
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+    
+    if (currentWeekDay > dayUnit)
+        dateComponents.day = -(currentWeekDay - dayUnit);
+    else
+        dateComponents.day = -currentWeekDay - (7 - dayUnit);
+    
+    _date = [_calendar dateByAddingComponents:dateComponents toDate:_date options:0];
+    
+    return self;
+}
+
+- (instancetype)nextDayOfDayName:(NVDayUnit)dayUnit {
+    int currentWeekDay = [_calendar components:_dateTimeCalendarUnit fromDate:_date].weekday;
+    
+    if (currentWeekDay == dayUnit)
+        return [self nextWeek];
+    
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+    
+    if (currentWeekDay < dayUnit)
+        dateComponents.day = dayUnit - currentWeekDay;
+    else
+        dateComponents.day = -currentWeekDay + dayUnit;
+    
+    _date = [_calendar dateByAddingComponents:dateComponents toDate:_date options:0];
+    
+    return self;
+}
+
+- (BOOL)isTodayName:(NVDayUnit)dayUnit {
+    return ([_calendar components:_dateTimeCalendarUnit fromDate:_date].weekday == dayUnit);
 }
 
 @end
