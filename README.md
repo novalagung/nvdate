@@ -39,7 +39,7 @@ NSLog(@"next 2 months from today is : %@", [date stringValueWithFormat:@"dd-MM-y
 // next 2 months from today is : 30-04-2014
 ```
 
-#### Next 8 days from last 2 months
+#### Second week of 2 months ago
     
 ```objectivec
 NVDate *date = date = [[[[[NVDate alloc] initUsingToday] previousMonths:2] firstDayOfMonth] nextWeek];
