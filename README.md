@@ -61,7 +61,7 @@ NSLog(@"is yesterday was friday ? %@", isFriday ? @"yes" : @"no");
 Documentation
 ======
 
-Currently documentaion page isn't ready
+[https://github.com/novalagung/NVDate/wiki/API-Reference](https://github.com/novalagung/NVDate/wiki/API-Reference)
 
 
 Contribution
