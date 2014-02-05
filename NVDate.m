@@ -259,6 +259,22 @@
     return self;
 }
 
+- (instancetype)firstMonthOfYear {
+    NSDateComponents *dateComponents = [_calendar components:_dateTimeCalendarUnit fromDate:_date];
+    dateComponents.month = NVMonthUnitJanuary;
+    _date = [_calendar dateFromComponents:dateComponents];
+    
+    return self;
+}
+
+- (instancetype)lastMonthOfYear {
+    NSDateComponents *dateComponents = [_calendar components:_dateTimeCalendarUnit fromDate:_date];
+    dateComponents.month = NVMonthUnitDecember;
+    _date = [_calendar dateFromComponents:dateComponents];
+    
+    return self;
+}
+
 - (instancetype)previousDayOfDayName:(NVDayUnit)dayUnit {
     int currentWeekDay = [_calendar components:_dateTimeCalendarUnit fromDate:_date].weekday;
     

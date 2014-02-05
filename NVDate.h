@@ -29,7 +29,7 @@ typedef NS_OPTIONS(NSUInteger, NVMonthUnit) {
     NVMonthUnitSeptember = 9,
     NVMonthUnitOctober   = 10,
     NVMonthUnitNovember  = 11,
-    NVMonthUnitDesember  = 12,
+    NVMonthUnitDecember  = 12,
 };
 
 @interface NVDate : NSObject
@@ -71,6 +71,9 @@ typedef NS_OPTIONS(NSUInteger, NVMonthUnit) {
 
 - (instancetype)firstDayOfMonth;
 - (instancetype)lastDayOfMonth;
+
+- (instancetype)firstMonthOfYear;
+- (instancetype)lastMonthOfYear;
 
 - (instancetype)previousDayOfDayName:(NVDayUnit)dayUnit;
 - (instancetype)nextDayOfDayName:(NVDayUnit)dayUnit;
