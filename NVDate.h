@@ -36,6 +36,10 @@ typedef NS_OPTIONS(NSUInteger, NVMonthUnit) {
 
 - (id)initUsingToday;
 - (id)initUsingDate:(NSDate *)date;
+- (id)initUsingYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
+- (id)initUsingYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second;
+- (id)initUsingString:(NSString *)stringDate;
+- (id)initUsingString:(NSString *)stringDate withFormat:(NSString *)dateFormat;
 - (id)initUsingSeconds:(NSInteger)seconds;
 
 - (NSDate *)date;
@@ -71,10 +75,18 @@ typedef NS_OPTIONS(NSUInteger, NVMonthUnit) {
 - (instancetype)previousDayOfDayName:(NVDayUnit)dayUnit;
 - (instancetype)nextDayOfDayName:(NVDayUnit)dayUnit;
 
-- (BOOL)isTodayName:(NVDayUnit)dayUnit;
+- (BOOL)isCurrentDayName:(NVDayUnit)dayUnit;
+- (BOOL)isCurrentMonthName:(NVMonthUnit)monthUnit;
 
 @property NSString *dateFormatUsingString;
 @property NSDateFormatterStyle dateFormatUsingStyle;
 @property NSDateFormatterStyle timeFormatUsingStyle;
+@property NSInteger year;
+@property NSInteger month;
+@property (readonly) NSInteger week;
+@property NSInteger day;
+@property NSInteger hour;
+@property NSInteger minute;
+@property NSInteger second;
 
 @end

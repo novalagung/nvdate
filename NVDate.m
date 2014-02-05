@@ -24,7 +24,7 @@
         
         _date = [[NSDate alloc] init];
         
-        _dateTimeCalendarUnit = (NSYearCalendarUnit | NSMonthCalendarUnit | NSWeekdayCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit);
+        _dateTimeCalendarUnit = (NSYearCalendarUnit | NSMonthCalendarUnit | NSWeekCalendarUnit | NSWeekdayCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit);
     }
     return self;
 }
@@ -32,6 +32,46 @@
 - (id)initUsingToday {
     if (self = [self init]) {
         _date = [NSDate date];
+    }
+    return self;
+}
+
+- (id)initUsingString:(NSString *)stringDate {
+    if (self = [self init]) {
+        _date = [_dateFormatter dateFromString:stringDate];
+    }
+    return self;
+}
+
+- (id)initUsingString:(NSString *)stringDate withFormat:(NSString *)dateFormat {
+    if (self = [self init]) {
+        _dateFormatter.dateFormat = dateFormat;
+        _date = [_dateFormatter dateFromString:stringDate];
+    }
+    return self;
+}
+
+- (id)initUsingYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day {
+    if (self = [self init]) {
+        NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+        dateComponents.year = year;
+        dateComponents.month = month;
+        dateComponents.day = day;
+        _date = [_calendar dateFromComponents:dateComponents];
+    }
+    return self;
+}
+
+- (id)initUsingYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second {
+    if (self = [self init]) {
+        NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+        dateComponents.year = year;
+        dateComponents.month = month;
+        dateComponents.day = day;
+        dateComponents.hour = hour;
+        dateComponents.minute = minute;
+        dateComponents.second = second;
+        _date = [_calendar dateFromComponents:dateComponents];
     }
     return self;
 }
@@ -255,8 +295,82 @@
     return self;
 }
 
-- (BOOL)isTodayName:(NVDayUnit)dayUnit {
+- (BOOL)isCurrentDayName:(NVDayUnit)dayUnit {
     return ([_calendar components:_dateTimeCalendarUnit fromDate:_date].weekday == dayUnit);
+}
+
+- (BOOL)isCurrentMonthName:(NVMonthUnit)monthUnit {
+    return ([_calendar components:_dateTimeCalendarUnit fromDate:_date].month == monthUnit);
+}
+
+- (NSInteger)year {
+    return [_calendar components:_dateTimeCalendarUnit fromDate:_date].year;
+}
+
+- (void)setYear:(NSInteger)year {
+    NSDateComponents *components = [_calendar components:_dateTimeCalendarUnit fromDate:_date];
+    components.year = year;
+    
+    _date = [_calendar dateFromComponents:components];
+}
+
+- (NSInteger)month {
+    return [_calendar components:_dateTimeCalendarUnit fromDate:_date].month;
+}
+
+- (void)setMonth:(NSInteger)month {
+    NSDateComponents *components = [_calendar components:_dateTimeCalendarUnit fromDate:_date];
+    components.month = month;
+    
+    _date = [_calendar dateFromComponents:components];
+}
+
+- (NSInteger)week {
+    return [_calendar components:_dateTimeCalendarUnit fromDate:_date].week;
+}
+
+- (NSInteger)day {
+    return [_calendar components:_dateTimeCalendarUnit fromDate:_date].day;
+}
+
+- (void)setDay:(NSInteger)day {
+    NSDateComponents *components = [_calendar components:_dateTimeCalendarUnit fromDate:_date];
+    components.day = day;
+    
+    _date = [_calendar dateFromComponents:components];
+}
+
+- (NSInteger)hour {
+    return [_calendar components:_dateTimeCalendarUnit fromDate:_date].hour;
+}
+
+- (void)setHour:(NSInteger)hour {
+    NSDateComponents *components = [_calendar components:_dateTimeCalendarUnit fromDate:_date];
+    components.hour = hour;
+    
+    _date = [_calendar dateFromComponents:components];
+}
+
+- (NSInteger)minute {
+    return [_calendar components:_dateTimeCalendarUnit fromDate:_date].minute;
+}
+
+- (void)setMinute:(NSInteger)minute {
+    NSDateComponents *components = [_calendar components:_dateTimeCalendarUnit fromDate:_date];
+    components.minute = minute;
+    
+    _date = [_calendar dateFromComponents:components];
+}
+
+- (NSInteger)second {
+    return [_calendar components:_dateTimeCalendarUnit fromDate:_date].second;
+}
+
+- (void)setSecond:(NSInteger)second {
+    NSDateComponents *components = [_calendar components:_dateTimeCalendarUnit fromDate:_date];
+    components.second = second;
+    
+    _date = [_calendar dateFromComponents:components];
 }
 
 @end
