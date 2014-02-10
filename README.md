@@ -1,5 +1,8 @@
 Introduction
 ======
+
+[![Build Status](https://travis-ci.org/novalagung/NVDate.png?branch=master)](https://travis-ci.org/novalagung/NVDate)
+
 __NVDate__ is library for handling `NSDate` manipulation in iOS Development.
 
 
