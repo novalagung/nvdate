@@ -8,7 +8,7 @@ __NVDate__ is library for handling `NSDate` manipulation in iOS Development.
 
 Features
 ======
-__NVDate__ have many features that helps to solve your problem.
+__NVDate__ have many features that help to solve your problem.
 
 * Capable to do lot of date manipulation task
 * User friendly naming convention
@@ -39,8 +39,6 @@ pod 'NVDate'
 
 Simple Example
 ======
-You need to copy both `NVDate.h` and `NVDate.m` files to your project. 
-And then, import the file `#import "NVDate.h"`.
     
 #### Full date of today
 
