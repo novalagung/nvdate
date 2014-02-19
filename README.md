@@ -17,6 +17,26 @@ __NVDate__ have many features that helps to solve your problem.
 * Open Source !
 
 
+Installation
+======
+
+#### Manually
+
+[Download](https://github.com/novalagung/NVDate/archive/master.zip) the source, copy both `NVDate.h` and `NVDate.m` files to your project, then import it.
+
+```objectivec
+#import "NVDate.h"
+```
+
+#### CocoaPods
+
+Installing NVDate using [CocoaPods](http://cocoapods.org/) is easier. Simply add the following line to your `Podfile` :
+
+```ruby
+pod 'NVDate'
+```
+
+
 Simple Example
 ======
 You need to copy both `NVDate.h` and `NVDate.m` files to your project. 
