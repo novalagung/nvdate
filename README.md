@@ -49,7 +49,7 @@ NSLog(@"today is : %@", [date stringValue]);
 // today is : Wednesday, February 5, 2014, 4:56:35 PM Western Indonesia Time
 ```
 
-#### Last day's date of next 2 months
+#### Last day of next 2 months
 
 ```objectivec
 NVDate *date = [[NVDate alloc] initUsingToday];
