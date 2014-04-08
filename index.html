@@ -78,7 +78,7 @@
 </pre></div>
 
 <h4>
-<a name="last-days-date-of-next-2-months" class="anchor" href="#last-days-date-of-next-2-months"><span class="octicon octicon-link"></span></a>Last day's date of next 2 months</h4>
+<a name="last-day-of-next-2-months" class="anchor" href="#last-day-of-next-2-months"><span class="octicon octicon-link"></span></a>Last day of next 2 months</h4>
 
 <div class="highlight highlight-objectivec"><pre><span class="n">NVDate</span> <span class="o">*</span><span class="n">date</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NVDate</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">initUsingToday</span><span class="p">];</span>
 <span class="p">[</span><span class="n">date</span> <span class="n">nextMonths</span><span class="o">:</span><span class="mi">2</span><span class="p">];</span>
@@ -91,7 +91,7 @@
 <h4>
 <a name="second-week-of-2-months-ago" class="anchor" href="#second-week-of-2-months-ago"><span class="octicon octicon-link"></span></a>Second week of 2 months ago</h4>
 
-<div class="highlight highlight-objectivec"><pre><span class="n">NVDate</span> <span class="o">*</span><span class="n">date</span> <span class="o">=</span> <span class="n">date</span> <span class="o">=</span> <span class="p">[[[[[</span><span class="n">NVDate</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">initUsingToday</span><span class="p">]</span> <span class="n">previousMonths</span><span class="o">:</span><span class="mi">2</span><span class="p">]</span> <span class="n">firstDayOfMonth</span><span class="p">]</span> <span class="n">nextWeek</span><span class="p">];</span>
+<div class="highlight highlight-objectivec"><pre><span class="n">NVDate</span> <span class="o">*</span><span class="n">date</span> <span class="o">=</span> <span class="p">[[[[[</span><span class="n">NVDate</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">initUsingToday</span><span class="p">]</span> <span class="n">previousMonths</span><span class="o">:</span><span class="mi">2</span><span class="p">]</span> <span class="n">firstDayOfMonth</span><span class="p">]</span> <span class="n">nextWeek</span><span class="p">];</span>
 <span class="n">date</span><span class="p">.</span><span class="n">dateFormatUsingString</span> <span class="o">=</span> <span class="s">@"yyyy-MM-dd HH:mm:ss"</span><span class="p">;</span>
 <span class="n">NSLog</span><span class="p">(</span><span class="s">@"second week of 2 months ago is : %@"</span><span class="p">,</span> <span class="p">[</span><span class="n">date</span> <span class="n">stringValue</span><span class="p">]);</span>
 
