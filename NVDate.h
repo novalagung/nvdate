@@ -47,7 +47,7 @@ typedef NS_OPTIONS(NSUInteger, NVMonthUnit) {
 - (NSString *)stringValue;
 - (NSString *)stringValueWithFormat:(NSString *)dateFormat;
 
-- (void)zeroTime;
+- (instancetype)zeroTime;
 
 - (instancetype)previousDay;
 - (instancetype)previousDays:(NSInteger)days;

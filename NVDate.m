@@ -105,13 +105,15 @@
     return [localDateFormatter stringFromDate:_date];
 }
 
-- (void)zeroTime {
+- (instancetype)zeroTime {
     NSDateComponents *dateComponents = [_calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit) fromDate:_date];
     dateComponents.hour = 0;
     dateComponents.minute = 0;
     dateComponents.second = 0;
     
     _date = [_calendar dateFromComponents:dateComponents];
+
+    return self;
 }
 
 - (void)setDateFormatUsingString:(NSString *)dateFormatUsingString {
