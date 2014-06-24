@@ -51,7 +51,7 @@
     return self;
 }
 
-- (id)initUsingYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day {
+- (id)initUsingYear:(int)year month:(int)month day:(int)day {
     if (self = [self init]) {
         NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
         dateComponents.year = year;
@@ -62,7 +62,7 @@
     return self;
 }
 
-- (id)initUsingYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second {
+- (id)initUsingYear:(int)year month:(int)month day:(int)day hour:(int)hour minute:(int)minute second:(int)second {
     if (self = [self init]) {
         NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
         dateComponents.year = year;
@@ -83,7 +83,7 @@
     return self;
 }
 
-- (id)initUsingSeconds:(NSInteger)seconds {
+- (id)initUsingSeconds:(int)seconds {
     if (self = [self init]) {
         _date = [NSDate dateWithTimeIntervalSinceReferenceDate:seconds];
     }
@@ -140,7 +140,7 @@
     return _dateFormatter.timeStyle;
 }
 
-- (instancetype)daysCalculate:(NSInteger)days isForward:(BOOL)isForward {
+- (instancetype)daysCalculate:(int)days isForward:(BOOL)isForward {
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     dateComponents.day = days * (isForward ? 1 : -1);
     _date = [_calendar dateByAddingComponents:dateComponents toDate:_date options:0];
@@ -152,7 +152,7 @@
     return [self previousDays:1];
 }
 
-- (instancetype)previousDays:(NSInteger)days {
+- (instancetype)previousDays:(int)days {
     return [self daysCalculate:days isForward:NO];
 }
 
@@ -160,11 +160,11 @@
     return [self nextDays:1];
 }
 
-- (instancetype)nextDays:(NSInteger)days {
+- (instancetype)nextDays:(int)days {
     return [self daysCalculate:days isForward:YES];
 }
 
-- (instancetype)weeksCalculate:(NSInteger)weeks isForward:(BOOL)isForward {
+- (instancetype)weeksCalculate:(int)weeks isForward:(BOOL)isForward {
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     dateComponents.day = (7 * weeks) * (isForward ? 1 : -1);
     _date = [_calendar dateByAddingComponents:dateComponents toDate:_date options:0];
@@ -176,7 +176,7 @@
     return [self previousWeeks:1];
 }
 
-- (instancetype)previousWeeks:(NSInteger)weeks {
+- (instancetype)previousWeeks:(int)weeks {
     return [self weeksCalculate:weeks isForward:NO];
 }
 
@@ -184,11 +184,11 @@
     return [self nextWeeks:1];
 }
 
-- (instancetype)nextWeeks:(NSInteger)weeks {
+- (instancetype)nextWeeks:(int)weeks {
     return [self weeksCalculate:weeks isForward:YES];
 }
 
-- (instancetype)monthsCalculate:(NSInteger)months isForward:(BOOL)isForward {
+- (instancetype)monthsCalculate:(int)months isForward:(BOOL)isForward {
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     dateComponents.month = months * (isForward ? 1 : -1);
     _date = [_calendar dateByAddingComponents:dateComponents toDate:_date options:0];
@@ -200,7 +200,7 @@
     return [self previousMonths:1];
 }
 
-- (instancetype)previousMonths:(NSInteger)months {
+- (instancetype)previousMonths:(int)months {
     return [self monthsCalculate:months isForward:NO];
 }
 
@@ -208,11 +208,11 @@
     return [self nextMonths:1];
 }
 
-- (instancetype)nextMonths:(NSInteger)months {
+- (instancetype)nextMonths:(int)months {
     return [self monthsCalculate:months isForward:YES];
 }
 
-- (instancetype)yearsCalculate:(NSInteger)years isForward:(BOOL)isForward {
+- (instancetype)yearsCalculate:(int)years isForward:(BOOL)isForward {
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     dateComponents.year = years * (isForward ? 1 : -1);
     _date = [_calendar dateByAddingComponents:dateComponents toDate:_date options:0];
@@ -224,7 +224,7 @@
     return [self previousYears:1];
 }
 
-- (instancetype)previousYears:(NSInteger)years {
+- (instancetype)previousYears:(int)years {
     return [self yearsCalculate:years isForward:NO];
 }
 
@@ -232,7 +232,7 @@
     return [self nextYears:1];
 }
 
-- (instancetype)nextYears:(NSInteger)years {
+- (instancetype)nextYears:(int)years {
     return [self yearsCalculate:years isForward:YES];
 }
 
@@ -321,70 +321,70 @@
     return ([_calendar components:_dateTimeCalendarUnit fromDate:_date].month == monthUnit);
 }
 
-- (NSInteger)year {
+- (int)year {
     return [_calendar components:_dateTimeCalendarUnit fromDate:_date].year;
 }
 
-- (void)setYear:(NSInteger)year {
+- (void)setYear:(int)year {
     NSDateComponents *components = [_calendar components:_dateTimeCalendarUnit fromDate:_date];
     components.year = year;
     
     _date = [_calendar dateFromComponents:components];
 }
 
-- (NSInteger)month {
+- (int)month {
     return [_calendar components:_dateTimeCalendarUnit fromDate:_date].month;
 }
 
-- (void)setMonth:(NSInteger)month {
+- (void)setMonth:(int)month {
     NSDateComponents *components = [_calendar components:_dateTimeCalendarUnit fromDate:_date];
     components.month = month;
     
     _date = [_calendar dateFromComponents:components];
 }
 
-- (NSInteger)week {
+- (int)week {
     return [_calendar components:_dateTimeCalendarUnit fromDate:_date].week;
 }
 
-- (NSInteger)day {
+- (int)day {
     return [_calendar components:_dateTimeCalendarUnit fromDate:_date].day;
 }
 
-- (void)setDay:(NSInteger)day {
+- (void)setDay:(int)day {
     NSDateComponents *components = [_calendar components:_dateTimeCalendarUnit fromDate:_date];
     components.day = day;
     
     _date = [_calendar dateFromComponents:components];
 }
 
-- (NSInteger)hour {
+- (int)hour {
     return [_calendar components:_dateTimeCalendarUnit fromDate:_date].hour;
 }
 
-- (void)setHour:(NSInteger)hour {
+- (void)setHour:(int)hour {
     NSDateComponents *components = [_calendar components:_dateTimeCalendarUnit fromDate:_date];
     components.hour = hour;
     
     _date = [_calendar dateFromComponents:components];
 }
 
-- (NSInteger)minute {
+- (int)minute {
     return [_calendar components:_dateTimeCalendarUnit fromDate:_date].minute;
 }
 
-- (void)setMinute:(NSInteger)minute {
+- (void)setMinute:(int)minute {
     NSDateComponents *components = [_calendar components:_dateTimeCalendarUnit fromDate:_date];
     components.minute = minute;
     
     _date = [_calendar dateFromComponents:components];
 }
 
-- (NSInteger)second {
+- (int)second {
     return [_calendar components:_dateTimeCalendarUnit fromDate:_date].second;
 }
 
-- (void)setSecond:(NSInteger)second {
+- (void)setSecond:(int)second {
     NSDateComponents *components = [_calendar components:_dateTimeCalendarUnit fromDate:_date];
     components.second = second;
     

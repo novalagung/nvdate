@@ -36,11 +36,11 @@ typedef NS_OPTIONS(NSUInteger, NVMonthUnit) {
 
 - (id)initUsingToday;
 - (id)initUsingDate:(NSDate *)date;
-- (id)initUsingYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
-- (id)initUsingYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second;
+- (id)initUsingYear:(int)year month:(int)month day:(int)day;
+- (id)initUsingYear:(int)year month:(int)month day:(int)day hour:(int)hour minute:(int)minute second:(int)second;
 - (id)initUsingString:(NSString *)stringDate;
 - (id)initUsingString:(NSString *)stringDate withFormat:(NSString *)dateFormat;
-- (id)initUsingSeconds:(NSInteger)seconds;
+- (id)initUsingSeconds:(int)seconds;
 
 - (NSDate *)date;
 
@@ -50,24 +50,24 @@ typedef NS_OPTIONS(NSUInteger, NVMonthUnit) {
 - (instancetype)zeroTime;
 
 - (instancetype)previousDay;
-- (instancetype)previousDays:(NSInteger)days;
+- (instancetype)previousDays:(int)days;
 - (instancetype)nextDay;
-- (instancetype)nextDays:(NSInteger)days;
+- (instancetype)nextDays:(int)days;
 
 - (instancetype)previousWeek;
-- (instancetype)previousWeeks:(NSInteger)weeks;
+- (instancetype)previousWeeks:(int)weeks;
 - (instancetype)nextWeek;
-- (instancetype)nextWeeks:(NSInteger)weeks;
+- (instancetype)nextWeeks:(int)weeks;
 
 - (instancetype)previousMonth;
-- (instancetype)previousMonths:(NSInteger)months;
+- (instancetype)previousMonths:(int)months;
 - (instancetype)nextMonth;
-- (instancetype)nextMonths:(NSInteger)months;
+- (instancetype)nextMonths:(int)months;
 
 - (instancetype)previousYear;
-- (instancetype)previousYears:(NSInteger)years;
+- (instancetype)previousYears:(int)years;
 - (instancetype)nextYear;
-- (instancetype)nextYears:(NSInteger)years;
+- (instancetype)nextYears:(int)years;
 
 - (instancetype)firstDayOfMonth;
 - (instancetype)lastDayOfMonth;
@@ -84,12 +84,12 @@ typedef NS_OPTIONS(NSUInteger, NVMonthUnit) {
 @property NSString *dateFormatUsingString;
 @property NSDateFormatterStyle dateFormatUsingStyle;
 @property NSDateFormatterStyle timeFormatUsingStyle;
-@property NSInteger year;
-@property NSInteger month;
-@property (readonly) NSInteger week;
-@property NSInteger day;
-@property NSInteger hour;
-@property NSInteger minute;
-@property NSInteger second;
+@property int year;
+@property int month;
+@property (readonly) int week;
+@property int day;
+@property int hour;
+@property int minute;
+@property int second;
 
 @end
