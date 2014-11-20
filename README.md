@@ -80,6 +80,16 @@ NSLog(@"is yesterday was friday ? %@", isFriday ? @"yes" : @"no");
 // is yesterday was friday ? no
 ```
 
+#### Dot syntax
+
+```objectivec
+NVDate *nvDate = [[NVDate alloc] initUsingToday];
+NSString someday = nvDate.previousDay.previousWeek.nextDay.stringValue;
+NSLog(@"someday %@", someday);
+
+// is yesterday was friday ? no
+```
+
 Documentation
 ======
 
