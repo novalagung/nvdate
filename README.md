@@ -86,8 +86,6 @@ NSLog(@"is yesterday was friday ? %@", isFriday ? @"yes" : @"no");
 NVDate *nvDate = [[NVDate alloc] initUsingToday];
 NSString someday = nvDate.previousDay.previousWeek.nextDay.stringValue;
 NSLog(@"someday %@", someday);
-
-// is yesterday was friday ? no
 ```
 
 Documentation
