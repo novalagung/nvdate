@@ -91,5 +91,6 @@ typedef NS_OPTIONS(NSUInteger, NVMonthUnit) {
 @property NSInteger hour;
 @property NSInteger minute;
 @property NSInteger second;
+@property NSTimeZone *timeZone;
 
 @end

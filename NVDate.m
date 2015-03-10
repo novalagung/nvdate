@@ -12,19 +12,24 @@
     NSCalendar *_calendar;
     NSDate *_date;
     NSCalendarUnit _dateTimeCalendarUnit;
+    NSTimeZone *_timeZone;
 }
 
 - (id)init {
     if (self = [super init]) {
+        _timeZone = [NSTimeZone localTimeZone];
+        
         _dateFormatter = [[NSDateFormatter alloc] init];
         _dateFormatter.dateStyle = NSDateFormatterFullStyle;
         _dateFormatter.timeStyle = NSDateFormatterFullStyle;
+        _dateFormatter.timeZone = _timeZone;
         
         _calendar = [NSCalendar currentCalendar];
+        _calendar.timeZone = _timeZone;
         
-        _date = [[NSDate alloc] init];
+        _date = [NSDate date];
         
-        _dateTimeCalendarUnit = (NSYearCalendarUnit | NSMonthCalendarUnit | NSWeekCalendarUnit | NSWeekdayCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit);
+        _dateTimeCalendarUnit = (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitWeekOfYear | NSCalendarUnitWeekday | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond);
     }
     return self;
 }
@@ -106,7 +111,7 @@
 }
 
 - (instancetype)zeroTime {
-    NSDateComponents *dateComponents = [_calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit) fromDate:_date];
+    NSDateComponents *dateComponents = [_calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:_date];
     dateComponents.hour = 0;
     dateComponents.minute = 0;
     dateComponents.second = 0;
@@ -344,7 +349,7 @@
 }
 
 - (NSInteger)week {
-    return [_calendar components:_dateTimeCalendarUnit fromDate:_date].week;
+    return [_calendar components:_dateTimeCalendarUnit fromDate:_date].weekOfYear;
 }
 
 - (NSInteger)day {
@@ -389,6 +394,16 @@
     components.second = second;
     
     _date = [_calendar dateFromComponents:components];
+}
+
+- (void)setTimeZone:(NSTimeZone *)timeZone {
+    _timeZone = timeZone;
+    _calendar.timeZone = _timeZone;
+    _dateFormatter.timeZone = _timeZone;
+}
+
+- (NSTimeZone *)timeZone {
+    return _timeZone;
 }
 
 @end
