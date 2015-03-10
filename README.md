@@ -25,7 +25,7 @@ Installation
 
 [Download](https://github.com/novalagung/NVDate/archive/master.zip) the source, copy both `NVDate.h` and `NVDate.m` files to your project, then import it.
 
-```objective-c
+```objectivec
 #import "NVDate.h"
 ```
 
@@ -43,7 +43,7 @@ Simple Example
     
 #### Full date of today
 
-```objective-c
+```objectivec
 NVDate *date = [[NVDate alloc] initUsingToday];
 NSLog(@"today is : %@", [date stringValue]);
 
@@ -52,7 +52,7 @@ NSLog(@"today is : %@", [date stringValue]);
 
 #### Last day of next 2 months
 
-```objective-c
+```objectivec
 NVDate *date = [[NVDate alloc] initUsingToday];
 [date nextMonths:2];
 [date lastDayOfMonth];
@@ -63,7 +63,7 @@ NSLog(@"next 2 months from today is : %@", [date stringValueWithFormat:@"dd-MM-y
 
 #### Second week of 2 months ago
     
-```objective-c
+```objectivec
 NVDate *date = [[[[[NVDate alloc] initUsingToday] previousMonths:2] firstDayOfMonth] nextWeek];
 date.dateFormatUsingString = @"yyyy-MM-dd HH:mm:ss";
 NSLog(@"second week of 2 months ago is : %@", [date stringValue]);
@@ -73,7 +73,7 @@ NSLog(@"second week of 2 months ago is : %@", [date stringValue]);
 
 #### Detect if yesterday is friday
 
-```objective-c
+```objectivec
 BOOL isFriday = [[[[NVDate alloc] initUsingToday] previousDay] isCurrentDayName:NVDayUnitFriday];
 NSLog(@"is yesterday was friday ? %@", isFriday ? @"yes" : @"no");
 
@@ -82,7 +82,7 @@ NSLog(@"is yesterday was friday ? %@", isFriday ? @"yes" : @"no");
 
 #### Dot syntax
 
-```objective-c
+```objectivec
 NVDate *nvDate = [[NVDate alloc] initUsingToday];
 NSString someday = nvDate.previousDay.previousWeek.nextDay.stringValue;
 NSLog(@"someday %@", someday);
