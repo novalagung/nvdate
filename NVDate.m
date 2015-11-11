@@ -148,7 +148,7 @@
 - (instancetype)daysCalculate:(NSInteger)days isForward:(BOOL)isForward {
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     dateComponents.day = days * (isForward ? 1 : -1);
-    _date = [_calendar dateByAddingComponents:dateComponents toDate:_date options:0];
+    _date = [_calendar dateByAddingComponents:dateComponents toDate:_date options:NSCalendarMatchStrictly];
     
     return self;
 }
@@ -172,7 +172,7 @@
 - (instancetype)weeksCalculate:(NSInteger)weeks isForward:(BOOL)isForward {
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     dateComponents.day = (7 * weeks) * (isForward ? 1 : -1);
-    _date = [_calendar dateByAddingComponents:dateComponents toDate:_date options:0];
+    _date = [_calendar dateByAddingComponents:dateComponents toDate:_date options:NSCalendarMatchStrictly];
     
     return self;
 }
@@ -196,7 +196,7 @@
 - (instancetype)monthsCalculate:(NSInteger)months isForward:(BOOL)isForward {
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     dateComponents.month = months * (isForward ? 1 : -1);
-    _date = [_calendar dateByAddingComponents:dateComponents toDate:_date options:0];
+    _date = [_calendar dateByAddingComponents:dateComponents toDate:_date options:NSCalendarMatchStrictly];
     
     return self;
 }
@@ -220,7 +220,7 @@
 - (instancetype)yearsCalculate:(NSInteger)years isForward:(BOOL)isForward {
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     dateComponents.year = years * (isForward ? 1 : -1);
-    _date = [_calendar dateByAddingComponents:dateComponents toDate:_date options:0];
+    _date = [_calendar dateByAddingComponents:dateComponents toDate:_date options:NSCalendarMatchStrictly];
     
     return self;
 }
@@ -258,10 +258,10 @@
     date = [_calendar dateFromComponents:dateComponents];
     dateComponents = [[NSDateComponents alloc] init];
     dateComponents.month = 1;
-    date = [_calendar dateByAddingComponents:dateComponents toDate:date options:0];
+    date = [_calendar dateByAddingComponents:dateComponents toDate:date options:NSCalendarMatchStrictly];
     dateComponents = [[NSDateComponents alloc] init];
     dateComponents.day = -1;
-    _date = [_calendar dateByAddingComponents:dateComponents toDate:date options:0];
+    _date = [_calendar dateByAddingComponents:dateComponents toDate:date options:NSCalendarMatchStrictly];
     
     return self;
 }
@@ -295,7 +295,7 @@
     else
         dateComponents.day = -currentWeekDay - (7 - dayUnit);
     
-    _date = [_calendar dateByAddingComponents:dateComponents toDate:_date options:0];
+    _date = [_calendar dateByAddingComponents:dateComponents toDate:_date options:NSCalendarMatchStrictly];
     
     return self;
 }
@@ -313,7 +313,7 @@
     else
         dateComponents.day = -currentWeekDay + dayUnit;
     
-    _date = [_calendar dateByAddingComponents:dateComponents toDate:_date options:0];
+    _date = [_calendar dateByAddingComponents:dateComponents toDate:_date options:NSCalendarMatchStrictly];
     
     return self;
 }
