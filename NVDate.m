@@ -282,7 +282,7 @@
     return self;
 }
 
-- (instancetype)previousDayOfDayName:(NVDayUnit)dayUnit {
+- (instancetype)nearestPreviousDay:(NVDayUnit)dayUnit {
     NSInteger currentWeekDay = [_calendar components:_dateTimeCalendarUnit fromDate:_date].weekday;
     
     if (currentWeekDay == dayUnit)
@@ -300,7 +300,7 @@
     return self;
 }
 
-- (instancetype)nextDayOfDayName:(NVDayUnit)dayUnit {
+- (instancetype)nearestNextDay:(NVDayUnit)dayUnit {
     NSInteger currentWeekDay = [_calendar components:_dateTimeCalendarUnit fromDate:_date].weekday;
     
     if (currentWeekDay == dayUnit)

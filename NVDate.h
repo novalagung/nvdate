@@ -75,8 +75,8 @@ typedef NS_OPTIONS(NSUInteger, NVMonthUnit) {
 - (instancetype)firstMonthOfYear;
 - (instancetype)lastMonthOfYear;
 
-- (instancetype)previousDayOfDayName:(NVDayUnit)dayUnit;
-- (instancetype)nextDayOfDayName:(NVDayUnit)dayUnit;
+- (instancetype)nearestPreviousDay:(NVDayUnit)dayUnit;
+- (instancetype)nearestNextDay:(NVDayUnit)dayUnit;
 
 - (BOOL)isCurrentDayName:(NVDayUnit)dayUnit;
 - (BOOL)isCurrentMonthName:(NVMonthUnit)monthUnit;
