@@ -55,16 +55,25 @@
 <h4>
 <a id="manually" class="anchor" href="#manually" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manually</h4>
 
-<p><a href="https://github.com/novalagung/NVDate/archive/master.zip">Download</a> the source, copy both <code>NVDate.h</code> and <code>NVDate.m</code> files to your project, then import it.</p>
+<p><a href="https://github.com/novalagung/NVDate/archive/master.zip">Download</a> the source, then follow these steps:</p>
 
-<div class="highlight highlight-objectivec"><pre>#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">"</span>NVDate.h<span class="pl-pds">"</span></span></pre></div>
+<ul>
+<li>
+<p>Objective-C
+copy both <code>NVDate.h</code> and <code>NVDate.m</code> files into your project</p>
+
+<div class="highlight highlight-source-objc"><pre>#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">"</span>NVDate.h<span class="pl-pds">"</span></span></pre></div>
+</li>
+<li><p>Swift
+copy <code>NVDate.Swift</code></p></li>
+</ul>
 
 <h4>
 <a id="cocoapods" class="anchor" href="#cocoapods" aria-hidden="true"><span class="octicon octicon-link"></span></a>CocoaPods</h4>
 
 <p>Installing NVDate using <a href="http://cocoapods.org/">CocoaPods</a> is easier. Simply add the following line to your <code>Podfile</code> :</p>
 
-<div class="highlight highlight-ruby"><pre>pod <span class="pl-s"><span class="pl-pds">'</span>NVDate<span class="pl-pds">'</span></span></pre></div>
+<div class="highlight highlight-source-ruby"><pre>pod <span class="pl-s"><span class="pl-pds">'</span>NVDate<span class="pl-pds">'</span></span></pre></div>
 
 <h1>
 <a id="simple-example" class="anchor" href="#simple-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple Example</h1>
@@ -72,44 +81,120 @@
 <h4>
 <a id="full-date-of-today" class="anchor" href="#full-date-of-today" aria-hidden="true"><span class="octicon octicon-link"></span></a>Full date of today</h4>
 
-<div class="highlight highlight-objectivec"><pre>NVDate *date = [[NVDate <span class="pl-c1">alloc</span>] <span class="pl-c1">initUsingToday</span>];
-<span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>today is : <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, [date <span class="pl-c1">stringValue</span>]);
+<ul>
+<li>
+<p>Objective-C</p>
 
+<div class="highlight highlight-source-objc"><pre>NVDate *date = [[NVDate <span class="pl-c1">alloc</span>] <span class="pl-c1">initUsingToday</span>];
+
+<span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>today is : <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, [date <span class="pl-c1">stringValue</span>]);
 <span class="pl-c">// today is : Wednesday, February 5, 2014, 4:56:35 PM Western Indonesia Time</span></pre></div>
+</li>
+<li>
+<p>Swift</p>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">let</span> date <span class="pl-k">=</span> NVDate(isUsingToday: <span class="pl-c1">true</span>)
+
+NSLog(<span class="pl-s"><span class="pl-pds">"</span>today is : %@<span class="pl-pds">"</span></span>, date<span class="pl-k">.</span><span class="pl-c1">stringValue</span>());
+<span class="pl-c">// today is : Wednesday, February 5, 2014, 4:56:35 PM Western Indonesia Time</span></pre></div>
+</li>
+</ul>
 
 <h4>
 <a id="last-day-of-next-2-months" class="anchor" href="#last-day-of-next-2-months" aria-hidden="true"><span class="octicon octicon-link"></span></a>Last day of next 2 months</h4>
 
-<div class="highlight highlight-objectivec"><pre>NVDate *date = [[NVDate <span class="pl-c1">alloc</span>] <span class="pl-c1">initUsingToday</span>];
+<ul>
+<li>
+<p>Objective-C</p>
+
+<div class="highlight highlight-source-objc"><pre>NVDate *date = [[NVDate <span class="pl-c1">alloc</span>] <span class="pl-c1">initUsingToday</span>];
 [date <span class="pl-c1">nextMonths:</span><span class="pl-c1">2</span>];
 [date <span class="pl-c1">lastDayOfMonth</span>];
-<span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>next 2 months from today is : <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, [date <span class="pl-c1">stringValueWithFormat:</span><span class="pl-s"><span class="pl-pds">@"</span>dd-MM-yyyy<span class="pl-pds">"</span></span>]);
 
+<span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>next 2 months from today is : <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, [date <span class="pl-c1">stringValueWithFormat:</span><span class="pl-s"><span class="pl-pds">@"</span>dd-MM-yyyy<span class="pl-pds">"</span></span>]);
 <span class="pl-c">// next 2 months from today is : 30-04-2014</span></pre></div>
+</li>
+<li>
+<p>Swift</p>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">var</span> date <span class="pl-k">=</span> NVDate(isUsingToday: <span class="pl-c1">true</span>)
+date<span class="pl-k">.</span>nextMonths(<span class="pl-c1">2</span>);
+date<span class="pl-k">.</span>lastDayOfMonth(<span class="pl-c1">2</span>);
+
+NSLog(<span class="pl-s"><span class="pl-pds">"</span>next 2 months from today is : %@<span class="pl-pds">"</span></span>, date<span class="pl-k">.</span><span class="pl-c1">stringValue</span>(dateFormat: <span class="pl-s"><span class="pl-pds">"</span>dd-MM-yyyy<span class="pl-pds">"</span></span>));
+<span class="pl-c">// next 2 months from today is : 30-04-2014</span></pre></div>
+</li>
+</ul>
 
 <h4>
 <a id="second-week-of-2-months-ago" class="anchor" href="#second-week-of-2-months-ago" aria-hidden="true"><span class="octicon octicon-link"></span></a>Second week of 2 months ago</h4>
 
-<div class="highlight highlight-objectivec"><pre>NVDate *date = [[[[[NVDate <span class="pl-c1">alloc</span>] <span class="pl-c1">initUsingToday</span>] <span class="pl-c1">previousMonths:</span><span class="pl-c1">2</span>] <span class="pl-c1">firstDayOfMonth</span>] <span class="pl-c1">nextWeek</span>];
-date.dateFormatUsingString = <span class="pl-s"><span class="pl-pds">@"</span>yyyy-MM-dd HH:mm:ss<span class="pl-pds">"</span></span>;
-<span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>second week of 2 months ago is : <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, [date <span class="pl-c1">stringValue</span>]);
+<ul>
+<li>
+<p>Objective-C</p>
 
+<div class="highlight highlight-source-objc"><pre>NVDate *date = [[[[[NVDate <span class="pl-c1">alloc</span>] <span class="pl-c1">initUsingToday</span>] <span class="pl-c1">previousMonths:</span><span class="pl-c1">2</span>] <span class="pl-c1">firstDayOfMonth</span>] <span class="pl-c1">nextWeek</span>];
+date.dateFormatUsingString = <span class="pl-s"><span class="pl-pds">@"</span>yyyy-MM-dd HH:mm:ss<span class="pl-pds">"</span></span>;
+
+<span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>second week of 2 months ago is : <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, [date <span class="pl-c1">stringValue</span>]);
 <span class="pl-c">// second week of 2 months ago is : 2013-12-08 17:03:36</span></pre></div>
+</li>
+<li>
+<p>Swift</p>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">var</span> date <span class="pl-k">=</span> NVDate(isUsingToday: <span class="pl-c1">true</span>)<span class="pl-k">.</span>previousMonths(<span class="pl-c1">2</span>)<span class="pl-k">.</span>firstDayOfMonth()<span class="pl-k">.</span>nextWeek()
+date<span class="pl-k">.</span>dateFormatUsingString <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>yyyy-MM-dd HH:mm:ss<span class="pl-pds">"</span></span>;
+
+NSLog(<span class="pl-s"><span class="pl-pds">"</span>second week of 2 months ago is : %@<span class="pl-pds">"</span></span>, date<span class="pl-k">.</span><span class="pl-c1">stringValue</span>());
+<span class="pl-c">// second week of 2 months ago is : 2013-12-08 17:03:36</span></pre></div>
+</li>
+</ul>
 
 <h4>
 <a id="detect-if-yesterday-is-friday" class="anchor" href="#detect-if-yesterday-is-friday" aria-hidden="true"><span class="octicon octicon-link"></span></a>Detect if yesterday is friday</h4>
 
-<div class="highlight highlight-objectivec"><pre><span class="pl-k">BOOL</span> isFriday = [[[[NVDate <span class="pl-c1">alloc</span>] <span class="pl-c1">initUsingToday</span>] <span class="pl-c1">previousDay</span>] <span class="pl-c1">isCurrentDayName:</span>NVDayUnitFriday];
-<span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>is yesterday was friday ? <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, isFriday ? <span class="pl-s"><span class="pl-pds">@"</span>yes<span class="pl-pds">"</span></span> : <span class="pl-s"><span class="pl-pds">@"</span>no<span class="pl-pds">"</span></span>);
+<ul>
+<li>
+<p>Objective-C</p>
 
+<div class="highlight highlight-source-objc"><pre><span class="pl-k">BOOL</span> isFriday = [[[[NVDate <span class="pl-c1">alloc</span>] <span class="pl-c1">initUsingToday</span>] <span class="pl-c1">previousDay</span>] <span class="pl-c1">isCurrentDayName:</span>NVDayUnitFriday];
+
+<span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>is yesterday was friday ? <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, isFriday ? <span class="pl-s"><span class="pl-pds">@"</span>yes<span class="pl-pds">"</span></span> : <span class="pl-s"><span class="pl-pds">@"</span>no<span class="pl-pds">"</span></span>);
 <span class="pl-c">// is yesterday was friday ? no</span></pre></div>
+</li>
+<li>
+<p>Swift</p>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-c1">Bool</span> isFriday <span class="pl-k">=</span> NVDate(isUsingToday: <span class="pl-c1">true</span>)<span class="pl-k">.</span>previousDay()<span class="pl-k">.</span>isCurrentDayName(<span class="pl-k">.</span>Friday)
+
+NSLog(<span class="pl-s"><span class="pl-pds">"</span>is yesterday was friday ? %@<span class="pl-pds">"</span></span>, isFriday <span class="pl-k">?</span> <span class="pl-s"><span class="pl-pds">"</span>yes<span class="pl-pds">"</span></span> <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>no<span class="pl-pds">"</span></span>);
+<span class="pl-c">// is yesterday was friday ? no</span></pre></div>
+</li>
+</ul>
 
 <h4>
 <a id="dot-syntax" class="anchor" href="#dot-syntax" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dot syntax</h4>
 
-<div class="highlight highlight-objectivec"><pre>NVDate *nvDate = [[NVDate <span class="pl-c1">alloc</span>] <span class="pl-c1">initUsingToday</span>];
+<ul>
+<li>
+<p>Objective-C</p>
+
+<div class="highlight highlight-source-objc"><pre>NVDate *nvDate = [[NVDate <span class="pl-c1">alloc</span>] <span class="pl-c1">initUsingToday</span>];
 <span class="pl-c1">NSString</span> someday = nvDate.previousDay.previousWeek.nextDay.stringValue;
-<span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>someday <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, someday);</pre></div>
+
+<span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>someday <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, someday);
+<span class="pl-c">// someday 2013-12-08 17:03:36</span></pre></div>
+</li>
+<li>
+<p>Swift</p>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">var</span> nvDate <span class="pl-k">=</span> NVDate(isUsingToday: <span class="pl-c1">true</span>);
+<span class="pl-c1">String</span> someday <span class="pl-k">=</span> nvDate<span class="pl-k">.</span>previousDay()<span class="pl-k">.</span>previousWeek()<span class="pl-k">.</span>nextDay()<span class="pl-k">.</span><span class="pl-c1">stringValue</span>();
+
+NSLog(@<span class="pl-s"><span class="pl-pds">"</span>someday %@<span class="pl-pds">"</span></span>, someday);
+<span class="pl-c">// someday 2013-12-08 17:03:36</span></pre></div>
+</li>
+</ul>
 
 <h1>
 <a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h1>
