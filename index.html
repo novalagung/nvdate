@@ -1,33 +1,25 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="UTF-8">
     <title>NVDate by novalagung</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-dark.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>NVDate</h1>
-        <p>Make NSDate manipulation goes easier</p>
-        <p class="view"><a href="https://github.com/novalagung/NVDate">View the Project on GitHub <small>novalagung/NVDate</small></a></p>
-        <ul>
-          <li><a href="https://github.com/novalagung/NVDate/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/novalagung/NVDate/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/novalagung/NVDate">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>
+    <section class="page-header">
+      <h1 class="project-name">NVDate</h1>
+      <h2 class="project-tagline">Easy to use NSDate library</h2>
+      <a href="https://github.com/novalagung/NVDate" class="btn">View on GitHub</a>
+      <a href="https://github.com/novalagung/NVDate/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/novalagung/NVDate/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
 <a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h1>
 
 <p><a href="https://travis-ci.org/novalagung/NVDate"><img src="https://travis-ci.org/novalagung/NVDate.png?branch=master" alt="Build Status"></a>
@@ -57,17 +49,20 @@
 
 <p><a href="https://github.com/novalagung/NVDate/archive/master.zip">Download</a> the source, then follow these steps:</p>
 
-<h5>
-<a id="objective-c" class="anchor" href="#objective-c" aria-hidden="true"><span class="octicon octicon-link"></span></a>Objective-C</h5>
+<ul>
+<li>
+<p>Objective-C</p>
 
 <p>Copy both <code>NVDate.h</code> and <code>NVDate.m</code> files into your project</p>
 
 <div class="highlight highlight-source-objc"><pre>#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">"</span>NVDate.h<span class="pl-pds">"</span></span></pre></div>
-
-<h5>
-<a id="swift" class="anchor" href="#swift" aria-hidden="true"><span class="octicon octicon-link"></span></a>Swift</h5>
+</li>
+<li>
+<p>Swift</p>
 
 <p>Copy <code>NVDate.Swift</code></p>
+</li>
+</ul>
 
 <h3>
 <a id="cocoapods" class="anchor" href="#cocoapods" aria-hidden="true"><span class="octicon octicon-link"></span></a>CocoaPods</h3>
@@ -83,7 +78,7 @@
 <a id="full-date-of-today" class="anchor" href="#full-date-of-today" aria-hidden="true"><span class="octicon octicon-link"></span></a>Full date of today</h3>
 
 <h5>
-<a id="objective-c-1" class="anchor" href="#objective-c-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Objective-C</h5>
+<a id="objective-c" class="anchor" href="#objective-c" aria-hidden="true"><span class="octicon octicon-link"></span></a>Objective-C</h5>
 
 <div class="highlight highlight-source-objc"><pre>NVDate *date = [[NVDate <span class="pl-c1">alloc</span>] <span class="pl-c1">initUsingToday</span>];
 
@@ -91,20 +86,18 @@
 <span class="pl-c">// today is : Wednesday, February 5, 2014, 4:56:35 PM Western Indonesia Time</span></pre></div>
 
 <h5>
-<a id="swift-1" class="anchor" href="#swift-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Swift</h5>
+<a id="swift" class="anchor" href="#swift" aria-hidden="true"><span class="octicon octicon-link"></span></a>Swift</h5>
 
 <div class="highlight highlight-source-swift"><pre><span class="pl-k">let</span> date <span class="pl-k">=</span> NVDate(isUsingToday: <span class="pl-c1">true</span>)
 
 NSLog(<span class="pl-s"><span class="pl-pds">"</span>today is : %@<span class="pl-pds">"</span></span>, date<span class="pl-k">.</span><span class="pl-c1">stringValue</span>());
 <span class="pl-c">// today is : Wednesday, February 5, 2014, 4:56:35 PM Western Indonesia Time</span></pre></div>
 
-<hr>
-
 <h3>
 <a id="last-day-of-next-2-months" class="anchor" href="#last-day-of-next-2-months" aria-hidden="true"><span class="octicon octicon-link"></span></a>Last day of next 2 months</h3>
 
 <h5>
-<a id="objective-c-2" class="anchor" href="#objective-c-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Objective-C</h5>
+<a id="objective-c-1" class="anchor" href="#objective-c-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Objective-C</h5>
 
 <div class="highlight highlight-source-objc"><pre>NVDate *date = [[NVDate <span class="pl-c1">alloc</span>] <span class="pl-c1">initUsingToday</span>];
 [date <span class="pl-c1">nextMonths:</span><span class="pl-c1">2</span>];
@@ -114,7 +107,7 @@ NSLog(<span class="pl-s"><span class="pl-pds">"</span>today is : %@<span class="
 <span class="pl-c">// next 2 months from today is : 30-04-2014</span></pre></div>
 
 <h5>
-<a id="swift-2" class="anchor" href="#swift-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Swift</h5>
+<a id="swift-1" class="anchor" href="#swift-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Swift</h5>
 
 <div class="highlight highlight-source-swift"><pre><span class="pl-k">var</span> date <span class="pl-k">=</span> NVDate(isUsingToday: <span class="pl-c1">true</span>)
 date<span class="pl-k">.</span>nextMonths(<span class="pl-c1">2</span>);
@@ -123,13 +116,11 @@ date<span class="pl-k">.</span>lastDayOfMonth(<span class="pl-c1">2</span>);
 NSLog(<span class="pl-s"><span class="pl-pds">"</span>next 2 months from today is : %@<span class="pl-pds">"</span></span>, date<span class="pl-k">.</span><span class="pl-c1">stringValue</span>(dateFormat: <span class="pl-s"><span class="pl-pds">"</span>dd-MM-yyyy<span class="pl-pds">"</span></span>));
 <span class="pl-c">// next 2 months from today is : 30-04-2014</span></pre></div>
 
-<hr>
-
 <h3>
 <a id="second-week-of-2-months-ago" class="anchor" href="#second-week-of-2-months-ago" aria-hidden="true"><span class="octicon octicon-link"></span></a>Second week of 2 months ago</h3>
 
 <h5>
-<a id="objective-c-3" class="anchor" href="#objective-c-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Objective-C</h5>
+<a id="objective-c-2" class="anchor" href="#objective-c-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Objective-C</h5>
 
 <div class="highlight highlight-source-objc"><pre>NVDate *date = [[[[[NVDate <span class="pl-c1">alloc</span>] <span class="pl-c1">initUsingToday</span>] <span class="pl-c1">previousMonths:</span><span class="pl-c1">2</span>] <span class="pl-c1">firstDayOfMonth</span>] <span class="pl-c1">nextWeek</span>];
 date.dateFormatUsingString = <span class="pl-s"><span class="pl-pds">@"</span>yyyy-MM-dd HH:mm:ss<span class="pl-pds">"</span></span>;
@@ -138,7 +129,7 @@ date.dateFormatUsingString = <span class="pl-s"><span class="pl-pds">@"</span>yy
 <span class="pl-c">// second week of 2 months ago is : 2013-12-08 17:03:36</span></pre></div>
 
 <h5>
-<a id="swift-3" class="anchor" href="#swift-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Swift</h5>
+<a id="swift-2" class="anchor" href="#swift-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Swift</h5>
 
 <div class="highlight highlight-source-swift"><pre><span class="pl-k">var</span> date <span class="pl-k">=</span> NVDate(isUsingToday: <span class="pl-c1">true</span>)<span class="pl-k">.</span>previousMonths(<span class="pl-c1">2</span>)<span class="pl-k">.</span>firstDayOfMonth()<span class="pl-k">.</span>nextWeek()
 date<span class="pl-k">.</span>dateFormatUsingString <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>yyyy-MM-dd HH:mm:ss<span class="pl-pds">"</span></span>;
@@ -146,13 +137,11 @@ date<span class="pl-k">.</span>dateFormatUsingString <span class="pl-k">=</span>
 NSLog(<span class="pl-s"><span class="pl-pds">"</span>second week of 2 months ago is : %@<span class="pl-pds">"</span></span>, date<span class="pl-k">.</span><span class="pl-c1">stringValue</span>());
 <span class="pl-c">// second week of 2 months ago is : 2013-12-08 17:03:36</span></pre></div>
 
-<hr>
-
 <h3>
 <a id="detect-if-yesterday-is-friday" class="anchor" href="#detect-if-yesterday-is-friday" aria-hidden="true"><span class="octicon octicon-link"></span></a>Detect if yesterday is friday</h3>
 
 <h5>
-<a id="objective-c-4" class="anchor" href="#objective-c-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Objective-C</h5>
+<a id="objective-c-3" class="anchor" href="#objective-c-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Objective-C</h5>
 
 <div class="highlight highlight-source-objc"><pre><span class="pl-k">BOOL</span> isFriday = [[[[NVDate <span class="pl-c1">alloc</span>] <span class="pl-c1">initUsingToday</span>] <span class="pl-c1">previousDay</span>] <span class="pl-c1">isCurrentDayName:</span>NVDayUnitFriday];
 
@@ -160,20 +149,18 @@ NSLog(<span class="pl-s"><span class="pl-pds">"</span>second week of 2 months ag
 <span class="pl-c">// is yesterday was friday ? no</span></pre></div>
 
 <h5>
-<a id="swift-4" class="anchor" href="#swift-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Swift</h5>
+<a id="swift-3" class="anchor" href="#swift-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Swift</h5>
 
 <div class="highlight highlight-source-swift"><pre><span class="pl-c1">Bool</span> isFriday <span class="pl-k">=</span> NVDate(isUsingToday: <span class="pl-c1">true</span>)<span class="pl-k">.</span>previousDay()<span class="pl-k">.</span>isCurrentDayName(<span class="pl-k">.</span>Friday)
 
 NSLog(<span class="pl-s"><span class="pl-pds">"</span>is yesterday was friday ? %@<span class="pl-pds">"</span></span>, isFriday <span class="pl-k">?</span> <span class="pl-s"><span class="pl-pds">"</span>yes<span class="pl-pds">"</span></span> <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>no<span class="pl-pds">"</span></span>);
 <span class="pl-c">// is yesterday was friday ? no</span></pre></div>
 
-<hr>
-
 <h3>
 <a id="dot-syntax" class="anchor" href="#dot-syntax" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dot syntax</h3>
 
 <h5>
-<a id="objective-c-5" class="anchor" href="#objective-c-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>Objective-C</h5>
+<a id="objective-c-4" class="anchor" href="#objective-c-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Objective-C</h5>
 
 <div class="highlight highlight-source-objc"><pre>NVDate *nvDate = [[NVDate <span class="pl-c1">alloc</span>] <span class="pl-c1">initUsingToday</span>];
 <span class="pl-c1">NSString</span> someday = nvDate.previousDay.previousWeek.nextDay.stringValue;
@@ -182,7 +169,7 @@ NSLog(<span class="pl-s"><span class="pl-pds">"</span>is yesterday was friday ? 
 <span class="pl-c">// someday 2013-12-08 17:03:36</span></pre></div>
 
 <h5>
-<a id="swift-5" class="anchor" href="#swift-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>Swift</h5>
+<a id="swift-4" class="anchor" href="#swift-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Swift</h5>
 
 <div class="highlight highlight-source-swift"><pre><span class="pl-k">var</span> nvDate <span class="pl-k">=</span> NVDate(isUsingToday: <span class="pl-c1">true</span>);
 <span class="pl-c1">String</span> someday <span class="pl-k">=</span> nvDate<span class="pl-k">.</span>previousDay()<span class="pl-k">.</span>previousWeek()<span class="pl-k">.</span>nextDay()<span class="pl-k">.</span><span class="pl-c1">stringValue</span>();
@@ -204,13 +191,15 @@ NSLog(@<span class="pl-s"><span class="pl-pds">"</span>someday %@<span class="pl
 <a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h1>
 
 <p><a href="http://novalagung.mit-license.org/">http://novalagung.mit-license.org/</a></p>
-      </section>
-    </div>
-    <footer>
-      <p>Project maintained by <a href="https://github.com/novalagung">novalagung</a></p>
-      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
-    </footer>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/novalagung/NVDate">NVDate</a> is maintained by <a href="https://github.com/novalagung">novalagung</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
   </body>
 </html>
