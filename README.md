@@ -1,50 +1,41 @@
 Introduction
 ======
 
-[![Build Status](https://travis-ci.org/novalagung/NVDate.png?branch=master)](https://travis-ci.org/novalagung/NVDate)
 [![Version](http://img.shields.io/cocoapods/v/NVDate.svg)](http://cocoadocs.org/docsets/NVDate)
 
-__NVDate__ is library for handling `NSDate` manipulation in iOS Development.
-
+__NVDate__ is an extension of `NSDate` class, created to make date and time manipulation easier.
 
 Features
 ======
-__NVDate__ have many features that help to solve your problem.
 
-* Capable to do lot of date manipulation task
-* User friendly naming convention
-* _Chainable_ functions
-* Easy to use
-* Open Source !
-
+* Has lot of API function to make date and time manipulation easier and fun
+* Has user friendly naming convention
+* NVDate functions are _chainable_
+* Very easy to use
+* Open Source!
 
 Installation
 ======
 
-### Manually
+### Using Cocoa Pods
 
-[Download](https://github.com/novalagung/NVDate/archive/master.zip) the source, then follow these steps:
-
- * Objective-C
- 
-   Copy both `NVDate.h` and `NVDate.m` files into your project
-   
-    ```objectivec
-    #import "NVDate.h"
-    ```
-
- * Swift
- 
-   Copy `NVDate.Swift`
-
-### CocoaPods
-
-Installing NVDate using [CocoaPods](http://cocoapods.org/) is easier. Simply add the following line to your `Podfile` :
+Add these into your `Podfile` :
 
 ```ruby
-pod 'NVDate'
+pod 'NVDate', '0.2.0'
 ```
 
+### Manual Installation
+
+[Download](https://github.com/novalagung/NVDate/archive/master.zip) NVDate source code, then add into your project.
+
+Copy both `NVDate.h` and `NVDate.m` files into your project. Then import `NVDate.h`.
+   
+```objectivec
+#import "NVDate.h"
+```
+
+For swift user, import `NVDate.h` into your bridging header file.
 
 Simple Example
 ======
