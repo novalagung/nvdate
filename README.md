@@ -3,7 +3,7 @@ Introduction
 
 <!-- [![Version](http://img.shields.io/cocoapods/v/NVDate.svg)](http://cocoadocs.org/docsets/NVDate) -->
 
-__NVDate__ is an extension of `NSDate` class, created to make date and time manipulation easier.
+__NVDate__ is an extension of `NSDate` class (Swift4), created to make date and time manipulation easier.
 
 Features
 ======
@@ -52,6 +52,15 @@ Simple Example
     
 ### Full date of today
 
+##### Swift4
+
+```swift
+let date = NVDate(useTodayDate: true)
+
+print("today is:", date.stringValue())
+// today is: Wednesday, February 5, 2014, 4:56:35 PM Western Indonesia Time
+```
+
 ##### Objective-C
 
 ```objectivec
@@ -61,16 +70,18 @@ NSLog(@"today is: %@", [date stringValue]);
 // today is: Wednesday, February 5, 2014, 4:56:35 PM Western Indonesia Time
 ```
 
-##### Swift
+### Last day of next 2 months
+
+##### Swift4
 
 ```swift
 let date = NVDate(useTodayDate: true)
+    .nextMonths(2)
+    .lastDayOfMonth()
 
-print("today is:", date.stringValue())
-// today is: Wednesday, February 5, 2014, 4:56:35 PM Western Indonesia Time
+print("next 2 months from today is:", date.stringValue(dateFormat: "dd-MM-yyyy"))
+// next 2 months from today is: 30-04-2014
 ```
-
-### Last day of next 2 months
 
 ##### Objective-C
 
@@ -83,30 +94,9 @@ NSLog(@"next 2 months from today is: %@", [date stringValueWithFormat:@"dd-MM-yy
 // next 2 months from today is: 30-04-2014
 ```
 
-##### Swift
-
-```swift
-let date = NVDate(useTodayDate: true)
-    .nextMonths(2)
-    .lastDayOfMonth()
-
-print("next 2 months from today is:", date.stringValue(dateFormat: "dd-MM-yyyy"))
-// next 2 months from today is: 30-04-2014
-```
-
 ### Second week of 2 months ago
 
-##### Objective-C
-
-```objectivec
-NVDate *date = [[[[[NVDate alloc] initUsingToday] previousMonths:2] firstDayOfMonth] nextWeek];
-date.dateFormatUsingString = @"yyyy-MM-dd HH:mm:ss";
-
-NSLog(@"second week of 2 months ago is: %@", [date stringValue]);
-// second week of 2 months ago is: 2013-12-08 17:03:36
-```
-
-##### Swift
+##### Swift4
 
 ```swift
 let date = NVDate(useTodayDate: true)
@@ -119,18 +109,19 @@ print("second week of 2 months ago is:", date.stringValue())
 // second week of 2 months ago is: 2013-12-08 17:03:36
 ```
 
-### Detect if yesterday is friday
-
 ##### Objective-C
 
 ```objectivec
-BOOL isFriday = [[[[NVDate alloc] initUsingToday] previousDay] isCurrentDayName:NVDayUnitFriday];
+NVDate *date = [[[[[NVDate alloc] initUsingToday] previousMonths:2] firstDayOfMonth] nextWeek];
+date.dateFormatUsingString = @"yyyy-MM-dd HH:mm:ss";
 
-NSLog(@"is yesterday was friday? %@", isFriday ? @"yes" : @"no");
-// is yesterday was friday? no
+NSLog(@"second week of 2 months ago is: %@", [date stringValue]);
+// second week of 2 months ago is: 2013-12-08 17:03:36
 ```
 
-##### Swift
+### Detect if yesterday is friday
+
+##### Swift4
 
 ```swift
 let isFriday = NVDate(useTodayDate: true)
@@ -141,19 +132,18 @@ print("is yesterday was friday?", isFriday ? "yes" : "no")
 // is yesterday was friday? no
 ```
 
-### Dot syntax
-
 ##### Objective-C
 
 ```objectivec
-NVDate *nvDate = [[NVDate alloc] initUsingToday];
-NSString someday = nvDate.previousDay.previousWeek.nextDay.stringValue;
+BOOL isFriday = [[[[NVDate alloc] initUsingToday] previousDay] isCurrentDayName:NVDayUnitFriday];
 
-NSLog(@"someday: %@", someday);
-// someday: 2013-12-08 17:03:36
+NSLog(@"is yesterday was friday? %@", isFriday ? @"yes" : @"no");
+// is yesterday was friday? no
 ```
 
-##### Swift
+### Dot syntax
+
+##### Swift4
 
 ```swift
 let someday = NVDate(useTodayDate: true)
@@ -163,6 +153,16 @@ let someday = NVDate(useTodayDate: true)
     .stringValue()
 
 print("someday:", someday)
+// someday: 2013-12-08 17:03:36
+```
+
+##### Objective-C
+
+```objectivec
+NVDate *nvDate = [[NVDate alloc] initUsingToday];
+NSString someday = nvDate.previousDay.previousWeek.nextDay.stringValue;
+
+NSLog(@"someday: %@", someday);
 // someday: 2013-12-08 17:03:36
 ```
 
