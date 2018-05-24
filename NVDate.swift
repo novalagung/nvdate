@@ -18,13 +18,13 @@ enum NVMonthUnit: Int {
 
 class NVDate: NSObject {
 
-    var dateFormatter: NSDateFormatter = NSDateFormatter()
-    var ourCalendar: NSCalendar = NSCalendar.currentCalendar()
-    var date: NSDate = NSDate()
-    var dateTimeCalendarUnit: NSCalendarUnit = [.Year, .Month, .WeekOfYear, .Weekday, .Day, .Hour, .Minute, .Second]
+    var dateFormatter = DateFormatter()
+    var ourCalendar = Calendar.current
+    var date: Date = Date()
+    var dateTimeCalendarUnit: Set<Calendar.Component> = [.year, .month, .weekOfYear, .weekday, .day, .hour, .minute, .second]
     
-    private var _timeZone: NSTimeZone = NSTimeZone.localTimeZone()
-    var timeZone: NSTimeZone {
+    private var _timeZone = NSTimeZone.local
+    var timeZone: TimeZone {
         get { return _timeZone }
         set {
             _timeZone = newValue
@@ -39,14 +39,14 @@ class NVDate: NSObject {
         set { _dateFormatUsingString = newValue }
     }
 
-    private var _dateFormatUsingStyle: NSDateFormatterStyle?
-    var dateFormatUsingStyle: NSDateFormatterStyle {
+    private var _dateFormatUsingStyle: DateFormatter.Style?
+    var dateFormatUsingStyle: DateFormatter.Style {
         get { return _dateFormatUsingStyle! }
         set { _dateFormatUsingStyle = newValue }
     }
     
-    private var _timeFormatUsingStyle: NSDateFormatterStyle?
-    var timeFormatUsingStyle: NSDateFormatterStyle {
+    private var _timeFormatUsingStyle: DateFormatter.Style?
+    var timeFormatUsingStyle: DateFormatter.Style {
         get { return _timeFormatUsingStyle! }
         set { _timeFormatUsingStyle = newValue }
     }
@@ -56,9 +56,9 @@ class NVDate: NSObject {
         get { return _year! }
         set {
             _year = newValue
-            let dateComponents = ourCalendar.components(dateTimeCalendarUnit, fromDate: date)
+            var dateComponents = ourCalendar.dateComponents(dateTimeCalendarUnit, from: date)
             dateComponents.year = _year!
-            date = ourCalendar.dateFromComponents(dateComponents)!
+            date = ourCalendar.date(from: dateComponents)!
         }
     }
     
@@ -67,15 +67,16 @@ class NVDate: NSObject {
         get { return _month! }
         set {
             _month = newValue
-            let dateComponents = ourCalendar.components(dateTimeCalendarUnit, fromDate: date)
+            var dateComponents = ourCalendar.dateComponents(dateTimeCalendarUnit, from: date)
             dateComponents.month = _month!
-            date = ourCalendar.dateFromComponents(dateComponents)!
+            date = ourCalendar.date(from: dateComponents)!
         }
     }
     
     var week: Int {
         get {
-            return ourCalendar.components(dateTimeCalendarUnit, fromDate: date).weekOfYear
+            let weekOfYear = ourCalendar.dateComponents(dateTimeCalendarUnit, from: date).weekOfYear!
+            return weekOfYear
         }
     }
     
@@ -84,9 +85,9 @@ class NVDate: NSObject {
         get { return _day! }
         set {
             _day = newValue
-            let dateComponents = ourCalendar.components(dateTimeCalendarUnit, fromDate: date)
+            var dateComponents = ourCalendar.dateComponents(dateTimeCalendarUnit, from: date)
             dateComponents.day = _day!
-            date = ourCalendar.dateFromComponents(dateComponents)!
+            date = ourCalendar.date(from: dateComponents)!
         }
     }
     
@@ -95,9 +96,9 @@ class NVDate: NSObject {
         get { return _hour! }
         set {
             _hour = newValue
-            let dateComponents = ourCalendar.components(dateTimeCalendarUnit, fromDate: date)
+            var dateComponents = ourCalendar.dateComponents(dateTimeCalendarUnit, from: date)
             dateComponents.hour = _hour!
-            date = ourCalendar.dateFromComponents(dateComponents)!
+            date = ourCalendar.date(from: dateComponents)!
         }
     }
     
@@ -106,9 +107,9 @@ class NVDate: NSObject {
         get { return _minute! }
         set {
             _minute = newValue
-            let dateComponents = ourCalendar.components(dateTimeCalendarUnit, fromDate: date)
+            var dateComponents = ourCalendar.dateComponents(dateTimeCalendarUnit, from: date)
             dateComponents.minute = _minute!
-            date = ourCalendar.dateFromComponents(dateComponents)!
+            date = ourCalendar.date(from: dateComponents)!
         }
     }
     
@@ -117,17 +118,17 @@ class NVDate: NSObject {
         get { return _second! }
         set {
             _second = newValue
-            let dateComponents = ourCalendar.components(dateTimeCalendarUnit, fromDate: date)
+            var dateComponents = ourCalendar.dateComponents(dateTimeCalendarUnit, from: date)
             dateComponents.second = _second!
-            date = ourCalendar.dateFromComponents(dateComponents)!
+            date = ourCalendar.date(from: dateComponents)!
         }
     }
     
     override init() {
         super.init()
         
-        dateFormatter.dateStyle = .FullStyle
-        dateFormatter.timeStyle = .FullStyle
+        dateFormatter.dateStyle = .full
+        dateFormatter.timeStyle = .full
         dateFormatter.timeZone = timeZone
         
         ourCalendar.timeZone = timeZone
@@ -136,7 +137,7 @@ class NVDate: NSObject {
     convenience init(isUsingToday: Bool) {
         self.init()
         
-        date = NSDate()
+        date = Date()
     }
     
     convenience init(stringDate: String, dateFormat: String?) {
@@ -146,13 +147,13 @@ class NVDate: NSObject {
             dateFormatter.dateFormat = dateFormat
         }
         
-        date = dateFormatter.dateFromString(stringDate)!
+        date = dateFormatter.date(from: stringDate)!
     }
     
     convenience init(year: Int, month: Int, day: Int, hour: Int?, minute: Int?, second: Int?) {
         self.init()
         
-        let dateComponents = NSDateComponents()
+        var dateComponents = DateComponents()
         dateComponents.year = year
         dateComponents.month = month
         dateComponents.day = day
@@ -169,43 +170,43 @@ class NVDate: NSObject {
             dateComponents.second = second!
         }
         
-        date = ourCalendar.dateFromComponents(dateComponents)!
+        date = ourCalendar.date(from: dateComponents)!
     }
     
-    convenience init(date: NSDate) {
+    convenience init(date: Date) {
         self.init()
         
         self.date = date
     }
     
-    convenience init(seconds: NSTimeInterval) {
+    convenience init(seconds: TimeInterval) {
         self.init()
         
-        date = NSDate(timeIntervalSinceReferenceDate: seconds)
+        date = Date(timeIntervalSinceReferenceDate: seconds)
     }
     
     func stringValue() -> String {
-        return dateFormatter.stringFromDate(date)
+        return dateFormatter.string(from: date)
     }
     
     func stringValue(dateFormat: String) -> String {
-        let localDateFormatter = dateFormatter.copy() as! NSDateFormatter
+        let localDateFormatter = dateFormatter.copy() as! DateFormatter
         localDateFormatter.dateFormat = dateFormat
         
-        return localDateFormatter.stringFromDate(date)
+        return localDateFormatter.string(from: date)
     }
     
     func zeroTime() -> NVDate {
-        let dateComponents = ourCalendar.components([.Year, .Month, .Day], fromDate: date)
-        date = ourCalendar.dateFromComponents(dateComponents)!
+        let dateComponents = ourCalendar.dateComponents([.year, .month, .day], from: date)
+        date = ourCalendar.date(from: dateComponents)!
         
         return self
     }
     
     private func daysCalculate(days: Int, isForward: Bool) -> NVDate {
-        let dateComponents = NSDateComponents()
+        var dateComponents = DateComponents()
         dateComponents.day = days * (isForward ? 1 : -1)
-        date = ourCalendar.dateByAddingComponents(dateComponents, toDate: date, options: .MatchStrictly)!
+        date = ourCalendar.date(byAdding: dateComponents, to: date, wrappingComponents: true)!
         
         return self
     }
@@ -214,30 +215,22 @@ class NVDate: NSObject {
         return previousDays(1)
     }
     
-    func previousDays(days: Int?) -> NVDate {
-        if (days != nil) {
-            return daysCalculate(days!, isForward: false)
-        }
-        
-        return previousDays(1)
+    func previousDays(_ days: Int) -> NVDate {
+        return daysCalculate(days: days, isForward: false)
     }
     
     func nextDay() -> NVDate {
         return nextDays(1)
     }
     
-    func nextDays(days: Int?) -> NVDate {
-        if (days != nil) {
-            return daysCalculate(days!, isForward: true)
-        }
-        
-        return nextDays(1)
+    func nextDays(_ days: Int) -> NVDate {
+        return daysCalculate(days: days, isForward: true)
     }
     
-    private func weeksCalculate(weeks: Int, isForward: Bool) -> NVDate {
-        let dateComponents = NSDateComponents()
+    private func weeksCalculate(_ weeks: Int, isForward: Bool) -> NVDate {
+        var dateComponents = DateComponents()
         dateComponents.day = (7 * weeks) * (isForward ? 1 : -1)
-        date = ourCalendar.dateByAddingComponents(dateComponents, toDate: date, options: .MatchStrictly)!
+        date = ourCalendar.date(byAdding: dateComponents, to: date, wrappingComponents: true)!
         
         return self
     }
@@ -246,30 +239,22 @@ class NVDate: NSObject {
         return previousWeeks(1)
     }
     
-    func previousWeeks(weeks: Int?) -> NVDate {
-        if (weeks != nil) {
-            return weeksCalculate(weeks!, isForward: false)
-        }
-        
-        return previousWeeks(1)
+    func previousWeeks(_ weeks: Int) -> NVDate {
+        return weeksCalculate(weeks, isForward: false)
     }
     
     func nextWeek() -> NVDate {
         return nextWeeks(1)
     }
     
-    func nextWeeks(weeks: Int?) -> NVDate {
-        if (weeks != nil) {
-            return weeksCalculate(weeks!, isForward: true)
-        }
-        
-        return nextWeeks(1)
+    func nextWeeks(_ weeks: Int) -> NVDate {
+        return weeksCalculate(weeks, isForward: true)
     }
     
-    private func monthsCalculate(months: Int, isForward: Bool) -> NVDate {
-        let dateComponents = NSDateComponents()
+    private func monthsCalculate(_ months: Int, isForward: Bool) -> NVDate {
+        var dateComponents = DateComponents()
         dateComponents.month = months * (isForward ? 1 : -1)
-        date = ourCalendar.dateByAddingComponents(dateComponents, toDate: date, options: .MatchStrictly)!
+        date = ourCalendar.date(byAdding: dateComponents, to: date, wrappingComponents: true)!
         
         return self
     }
@@ -278,30 +263,22 @@ class NVDate: NSObject {
         return previousMonths(1)
     }
     
-    func previousMonths(months: Int?) -> NVDate {
-        if (months != nil) {
-            return monthsCalculate(months!, isForward: false)
-        }
-        
-        return previousMonths(1)
+    func previousMonths(_ months: Int) -> NVDate {
+        return monthsCalculate(months, isForward: false)
     }
     
     func nextMonth() -> NVDate {
         return nextMonths(1)
     }
     
-    func nextMonths(months: Int?) -> NVDate {
-        if (months != nil) {
-            return monthsCalculate(months!, isForward: true)
-        }
-        
-        return nextMonths(1)
+    func nextMonths(_ months: Int) -> NVDate {
+        return monthsCalculate(months, isForward: true)
     }
     
-    private func yearsCalculate(years: Int, isForward: Bool) -> NVDate {
-        let dateComponents = NSDateComponents()
+    private func yearsCalculate(_ years: Int, isForward: Bool) -> NVDate {
+        var dateComponents = DateComponents()
         dateComponents.year = years * (isForward ? 1 : -1)
-        date = ourCalendar.dateByAddingComponents(dateComponents, toDate: date, options: .MatchStrictly)!
+        date = ourCalendar.date(byAdding: dateComponents, to: date, wrappingComponents: true)!
         
         return self
     }
@@ -310,77 +287,69 @@ class NVDate: NSObject {
         return previousYears(1)
     }
     
-    func previousYears(years: Int?) -> NVDate {
-        if (years != nil) {
-            return yearsCalculate(years!, isForward: false)
-        }
-        
-        return previousYears(1)
+    func previousYears(_ years: Int) -> NVDate {
+        return yearsCalculate(years, isForward: false)
     }
     
     func nextYear() -> NVDate {
         return nextYears(1)
     }
     
-    func nextYears(years: Int?) -> NVDate {
-        if (years != nil) {
-            return yearsCalculate(years!, isForward: true)
-        }
-        
-        return nextYears(1)
+    func nextYears(_ years: Int) -> NVDate {
+        return yearsCalculate(years, isForward: true)
     }
     
     func firstDayOfMonth() -> NVDate {
-        let dateComponents = ourCalendar.components(dateTimeCalendarUnit, fromDate: date)
+        var dateComponents = ourCalendar.dateComponents(dateTimeCalendarUnit, from: date)
         dateComponents.day = 1
-        date = ourCalendar.dateFromComponents(dateComponents)!
+        date = ourCalendar.date(from: dateComponents)!
         
         return self
     }
     
     func lastDayOfMonth() -> NVDate {
-        var dateComponents: NSDateComponents
-        var date: NSDate
+        var dateComponents: DateComponents
+        var date: Date
         
-        dateComponents = ourCalendar.components(dateTimeCalendarUnit, fromDate: self.date)
+        dateComponents = ourCalendar.dateComponents(dateTimeCalendarUnit, from: self.date)
         dateComponents.day = 1
-        date = ourCalendar.dateFromComponents(dateComponents)!
+        date = ourCalendar.date(from: dateComponents)!
         
-        dateComponents = NSDateComponents()
+        dateComponents = DateComponents()
         dateComponents.month = 1
-        date = ourCalendar.dateByAddingComponents(dateComponents, toDate: date, options: .MatchStrictly)!
+        date = ourCalendar.date(byAdding: dateComponents, to: date, wrappingComponents: true)!
         
-        dateComponents = NSDateComponents()
+        dateComponents = DateComponents()
         dateComponents.day = -1
-        self.date = ourCalendar.dateByAddingComponents(dateComponents, toDate: date, options: .MatchStrictly)!
+        self.date = ourCalendar.date(byAdding: dateComponents, to: date, wrappingComponents: true)!
         
         return self
     }
     
     func firstMonthOfYear() -> NVDate {
-        let dateComponents = ourCalendar.components(dateTimeCalendarUnit, fromDate: date)
+        var dateComponents = ourCalendar.dateComponents(dateTimeCalendarUnit, from: date)
         dateComponents.month = NVMonthUnit.January.rawValue
-        date = ourCalendar.dateFromComponents(dateComponents)!
+        date = ourCalendar.date(from: dateComponents)!
         
         return self
     }
     
     func lastMonthOfYear() -> NVDate {
-        let dateComponents = ourCalendar.components(dateTimeCalendarUnit, fromDate: date)
+        var dateComponents = ourCalendar.dateComponents(dateTimeCalendarUnit, from: date)
         dateComponents.month = NVMonthUnit.December.rawValue
-        date = ourCalendar.dateFromComponents(dateComponents)!
+        date = ourCalendar.date(from: dateComponents)!
         
         return self
     }
     
     func nearestPreviousDay(dayUnit: NVDayUnit) -> NVDate {
-        let currentWeekDay = ourCalendar.components(dateTimeCalendarUnit, fromDate: date).weekday
+        let currentWeekDay = ourCalendar.dateComponents(dateTimeCalendarUnit, from: date).weekday!
         
         if (currentWeekDay == dayUnit.rawValue) {
             return previousWeek()
         }
         
-        let dateComponents = NSDateComponents()
+        var dateComponents = DateComponents()
         
         if (currentWeekDay > dayUnit.rawValue) {
             dateComponents.day = -1 * (currentWeekDay - dayUnit.rawValue)
@@ -388,19 +357,19 @@ class NVDate: NSObject {
             dateComponents.day = (-1 * currentWeekDay) - (7 - dayUnit.rawValue)
         }
         
-        date = ourCalendar.dateByAddingComponents(dateComponents, toDate: date, options: .MatchStrictly)!
+        date = ourCalendar.date(byAdding: dateComponents, to: date, wrappingComponents: true)!
         
         return self
     }
     
     func nearestNextDay(dayUnit: NVDayUnit) -> NVDate {
-        let currentWeekDay = ourCalendar.components(dateTimeCalendarUnit, fromDate: date).weekday
+        let currentWeekDay = ourCalendar.dateComponents(dateTimeCalendarUnit, from: date).weekday!
         
         if (currentWeekDay == dayUnit.rawValue) {
             return nextWeek()
         }
         
-        let dateComponents = NSDateComponents()
+        var dateComponents = DateComponents()
         
         if (currentWeekDay < dayUnit.rawValue) {
             dateComponents.day = dayUnit.rawValue - currentWeekDay
@@ -408,16 +377,16 @@ class NVDate: NSObject {
             dateComponents.day = (-1 * currentWeekDay) + dayUnit.rawValue
         }
         
-        date = ourCalendar.dateByAddingComponents(dateComponents, toDate: date, options: .MatchStrictly)!
+        date = ourCalendar.date(byAdding: dateComponents, to: date, wrappingComponents: true)!
         
         return self
     }
     
     func isCurrentDayName(dayUnit: NVDayUnit) -> Bool {
-        return (ourCalendar.components(dateTimeCalendarUnit, fromDate: date).weekday == dayUnit.rawValue)
+        return (ourCalendar.dateComponents(dateTimeCalendarUnit, from: date).weekday! == dayUnit.rawValue)
     }
     
     func isCurrentMonthName(monthUnit: NVMonthUnit) -> Bool {
-        return (ourCalendar.components(dateTimeCalendarUnit, fromDate: date).month == monthUnit.rawValue)
+        return (ourCalendar.dateComponents(dateTimeCalendarUnit, from: date).month! == monthUnit.rawValue)
     }
 }

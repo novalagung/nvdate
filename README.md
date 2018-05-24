@@ -57,17 +57,17 @@ Simple Example
 ```objectivec
 NVDate *date = [[NVDate alloc] initUsingToday];
  
-NSLog(@"today is : %@", [date stringValue]);
-// today is : Wednesday, February 5, 2014, 4:56:35 PM Western Indonesia Time
+NSLog(@"today is: %@", [date stringValue]);
+// today is: Wednesday, February 5, 2014, 4:56:35 PM Western Indonesia Time
 ```
 
 ##### Swift
 
 ```swift
-let date = NVDate(isUsingToday: true)
+let date = NVDate(useTodayDate: true)
 
-NSLog("today is : %@", date.stringValue());
-// today is : Wednesday, February 5, 2014, 4:56:35 PM Western Indonesia Time
+print("today is:", date.stringValue())
+// today is: Wednesday, February 5, 2014, 4:56:35 PM Western Indonesia Time
 ```
 
 ### Last day of next 2 months
@@ -79,19 +79,19 @@ NVDate *date = [[NVDate alloc] initUsingToday];
 [date nextMonths:2];
 [date lastDayOfMonth];
 
-NSLog(@"next 2 months from today is : %@", [date stringValueWithFormat:@"dd-MM-yyyy"]);
-// next 2 months from today is : 30-04-2014
+NSLog(@"next 2 months from today is: %@", [date stringValueWithFormat:@"dd-MM-yyyy"]);
+// next 2 months from today is: 30-04-2014
 ```
 
 ##### Swift
 
 ```swift
-var date = NVDate(isUsingToday: true)
-date.nextMonths(2);
-date.lastDayOfMonth(2);
+let date = NVDate(useTodayDate: true)
+    .nextMonths(2)
+    .lastDayOfMonth()
 
-NSLog("next 2 months from today is : %@", date.stringValue(dateFormat: "dd-MM-yyyy"));
-// next 2 months from today is : 30-04-2014
+print("next 2 months from today is:", date.stringValue(dateFormat: "dd-MM-yyyy"))
+// next 2 months from today is: 30-04-2014
 ```
 
 ### Second week of 2 months ago
@@ -102,18 +102,21 @@ NSLog("next 2 months from today is : %@", date.stringValue(dateFormat: "dd-MM-yy
 NVDate *date = [[[[[NVDate alloc] initUsingToday] previousMonths:2] firstDayOfMonth] nextWeek];
 date.dateFormatUsingString = @"yyyy-MM-dd HH:mm:ss";
 
-NSLog(@"second week of 2 months ago is : %@", [date stringValue]);
-// second week of 2 months ago is : 2013-12-08 17:03:36
+NSLog(@"second week of 2 months ago is: %@", [date stringValue]);
+// second week of 2 months ago is: 2013-12-08 17:03:36
 ```
 
 ##### Swift
 
 ```swift
-var date = NVDate(isUsingToday: true).previousMonths(2).firstDayOfMonth().nextWeek()
-date.dateFormatUsingString = "yyyy-MM-dd HH:mm:ss";
+let date = NVDate(useTodayDate: true)
+    .previousMonths(2)
+    .firstDayOfMonth()
+    .nextWeek()
+date.dateFormatUsingString = "yyyy-MM-dd HH:mm:ss"
 
-NSLog("second week of 2 months ago is : %@", date.stringValue());
-// second week of 2 months ago is : 2013-12-08 17:03:36
+print("second week of 2 months ago is:", date.stringValue())
+// second week of 2 months ago is: 2013-12-08 17:03:36
 ```
 
 ### Detect if yesterday is friday
@@ -123,17 +126,19 @@ NSLog("second week of 2 months ago is : %@", date.stringValue());
 ```objectivec
 BOOL isFriday = [[[[NVDate alloc] initUsingToday] previousDay] isCurrentDayName:NVDayUnitFriday];
 
-NSLog(@"is yesterday was friday ? %@", isFriday ? @"yes" : @"no");
-// is yesterday was friday ? no
+NSLog(@"is yesterday was friday? %@", isFriday ? @"yes" : @"no");
+// is yesterday was friday? no
 ```
 
 ##### Swift
 
 ```swift
-Bool isFriday = NVDate(isUsingToday: true).previousDay().isCurrentDayName(.Friday)
+let isFriday = NVDate(useTodayDate: true)
+    .previousDay()
+    .isCurrentDayName(.Friday)
 
-NSLog("is yesterday was friday ? %@", isFriday ? "yes" : "no");
-// is yesterday was friday ? no
+print("is yesterday was friday?", isFriday ? "yes" : "no")
+// is yesterday was friday? no
 ```
 
 ### Dot syntax
@@ -144,18 +149,21 @@ NSLog("is yesterday was friday ? %@", isFriday ? "yes" : "no");
 NVDate *nvDate = [[NVDate alloc] initUsingToday];
 NSString someday = nvDate.previousDay.previousWeek.nextDay.stringValue;
 
-NSLog(@"someday %@", someday);
-// someday 2013-12-08 17:03:36
+NSLog(@"someday: %@", someday);
+// someday: 2013-12-08 17:03:36
 ```
 
 ##### Swift
 
 ```swift
-var nvDate = NVDate(isUsingToday: true);
-String someday = nvDate.previousDay().previousWeek().nextDay().stringValue();
+let someday = NVDate(useTodayDate: true)
+    .previousDay()
+    .previousWeek()
+    .nextDay()
+    .stringValue()
 
-NSLog(@"someday %@", someday);
-// someday 2013-12-08 17:03:36
+print("someday:", someday)
+// someday: 2013-12-08 17:03:36
 ```
 
 Documentation
