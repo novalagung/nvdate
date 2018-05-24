@@ -24,7 +24,7 @@ Installation
 Add these into your `Podfile`:
 
 ```ruby
-pod 'NVDate', '2.0.0'
+pod 'NVDate', '2.0.1'
 ```
 
 Then import `NVdate` into your swift file.
