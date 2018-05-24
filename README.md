@@ -22,7 +22,7 @@ Installation
 Add these into your `Podfile` :
 
 ```ruby
-pod 'NVDate', '0.2.0'
+pod 'NVDate', '1.0.0'
 ```
 
 ### Manual Installation
