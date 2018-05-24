@@ -1,7 +1,7 @@
 Introduction
 ======
 
-[![Version](http://img.shields.io/cocoapods/v/NVDate.svg)](http://cocoadocs.org/docsets/NVDate)
+<!-- [![Version](http://img.shields.io/cocoapods/v/NVDate.svg)](http://cocoadocs.org/docsets/NVDate) -->
 
 __NVDate__ is an extension of `NSDate` class, created to make date and time manipulation easier.
 
