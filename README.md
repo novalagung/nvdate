@@ -44,7 +44,7 @@ pod 'NVDate', '1.0.0'
 Then import `NVdate.h` into your .h or .m file.
 
 ```swift
-import "NVDate.h"
+#import "NVDate.h"
 ```
 
 Simple Example
