@@ -43,7 +43,7 @@ pod 'NVDate', '1.0.0'
 
 Then import `NVdate.h` into your .h or .m file.
 
-```swift
+```objectivec
 #import "NVDate.h"
 ```
 
