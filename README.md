@@ -19,23 +19,33 @@ Installation
 
 ### Using Cocoa Pods
 
-Add these into your `Podfile` :
+##### Swift
+
+Add these into your `Podfile`:
+
+```ruby
+pod 'NVDate', '2.0.0'
+```
+
+Then import `NVdate` into your swift file.
+
+```swift
+import NVDate
+```
+
+##### Objective-C
+
+Add these into your `Podfile`:
 
 ```ruby
 pod 'NVDate', '1.0.0'
 ```
 
-### Manual Installation
+Then import `NVdate.h` into your .h or .m file.
 
-[Download](https://github.com/novalagung/NVDate/archive/master.zip) NVDate source code, then add into your project.
-
-Copy both `NVDate.h` and `NVDate.m` files into your project. Then import `NVDate.h`.
-   
-```objectivec
-#import "NVDate.h"
+```swift
+import "NVDate.h"
 ```
-
-For swift user, import `NVDate.h` into your bridging header file.
 
 Simple Example
 ======
