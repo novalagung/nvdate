@@ -19,7 +19,7 @@ Installation
 
 ### Using Cocoa Pods
 
-##### Swift
+##### Swift4
 
 Add these into your `Podfile`:
 
