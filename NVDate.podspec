@@ -7,7 +7,7 @@ Pod::Spec.new do |spec|
   spec.source            = { :git => 'https://github.com/novalagung/NVDate.git', :tag => '0.2.0' }
   spec.summary           = 'NSDate extension library'
   spec.description       = <<-DESC
-                             **NVDate** is an extension of NSDate, aim to make date and time manipulation easier.
+                             **NVDate** is an extension of NSDate, created to make date and time manipulation easier.
                            DESC
   spec.documentation_url = 'https://github.com/novalagung/NVDate/wiki/API-Reference'
   spec.source_files      = 'NVDate.{h,m}'
