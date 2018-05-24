@@ -1,11 +1,11 @@
 Pod::Spec.new do |spec|
   spec.name              = 'NVDate'
   spec.platform          = :ios, "8.0"
-  spec.version           = '0.2.0'
+  spec.version           = '1.0.0'
   spec.authors           = { 'Noval Agung Prayogo' => 'caknopal@gmail.com' }
   spec.license           = { :type => 'MIT', :file => 'LICENSE' }
   spec.homepage          = 'https://github.com/novalagung/NVDate'
-  spec.source            = { :git => 'https://github.com/novalagung/NVDate.git', :tag => '0.2.0' }
+  spec.source            = { :git => 'https://github.com/novalagung/NVDate.git', :tag => '1.0.0' }
   spec.summary           = 'NSDate extension library'
   spec.description       = <<-DESC
                              **NVDate** is an extension of NSDate, created to make date and time manipulation easier.
