@@ -2,7 +2,7 @@ Introduction
 ======
 
 [![Build Status](https://travis-ci.org/novalagung/nvdate.svg?branch=master)](https://travis-ci.org/novalagung/nvdate)
-![CocoaPods](https://img.shields.io/cocoapods/v/NVDate.svg)
+[![CocoaPods](https://img.shields.io/cocoapods/v/NVDate.svg)](https://cocoapods.org/pods/NVDate)
 ![CocoaPods](https://img.shields.io/cocoapods/dt/NVDate.svg)
 
 
