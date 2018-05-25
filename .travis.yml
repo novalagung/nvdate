@@ -1,4 +1,4 @@
 language: objective-c
-xcode_project: example/example.xcodeproj
-xcode_scheme: exampleTests
+xcode_project: test/test.xcodeproj
+xcode_scheme: test
 osx_image: xcode9

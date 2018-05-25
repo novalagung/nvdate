@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  example
+//  test
 //
-//  Created by Noval Agung Prayogo on 24/05/18.
+//  Created by Noval Agung Prayogo on 25/05/18.
 //  Copyright © 2018 Noval Agung Prayogo. All rights reserved.
 //
 

@@ -1,13 +1,13 @@
 //
-//  exampleTests.swift
-//  exampleTests
+//  testTests.swift
+//  testTests
 //
-//  Created by Noval Agung Prayogo on 24/05/18.
+//  Created by Noval Agung Prayogo on 25/05/18.
 //  Copyright © 2018 Noval Agung Prayogo. All rights reserved.
 //
 
 import XCTest
-@testable import example
+@testable import test
 
 class exampleTests: XCTestCase {
     
