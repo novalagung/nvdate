@@ -130,7 +130,7 @@ Initialization | Description
 `NVDate(fromString:withFormat:)` | Use specified date string as date value. Format of specified date string has to be explicitly defined.
 `NVDate(year:month:day:)` | Construct new date using year, month, and day
 `NVDate(year:month:day:hour:minute:second:)` | Construct new date using year, month, day, hour, minute, second
-`NVDate(fromDate: Date)` | use specified date as value
+`NVDate(fromDate:)` | use specified date as value
 
 #### Methods
 
