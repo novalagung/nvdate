@@ -10,7 +10,7 @@ import UIKit
 
 class NVDate: NSObject {
     
-    public enum DayUnit: Int {
+    public enum DayName: Int {
         case sunday = 1
         case monday = 2
         case tuesday = 3
@@ -19,8 +19,9 @@ class NVDate: NSObject {
         case friday = 6
         case saturday = 7
     }
+    private var _dayNames: [DayName] = [.sunday, .monday, .tuesday, .wednesday, .thursday, .friday, .saturday]
     
-    public enum MonthUnit: Int {
+    public enum MonthName: Int {
         case january = 1
         case february = 2
         case march = 3
@@ -34,29 +35,30 @@ class NVDate: NSObject {
         case november = 11
         case december = 12
     }
+    private var _monthsNames: [MonthName] = [.january, .february, .march, .april, .may, .june, .july, .august, .september, .october, .november, .december]
     
     // ============= private props
 
     fileprivate var _date: Date?
     fileprivate var _dateFormatter: DateFormatter = DateFormatter()
     fileprivate var _calendar = Calendar.current
-    fileprivate var _calendarUnitDateTime: Set<Calendar.Component> = [.year, .month, .weekOfYear, .weekday, .day, .hour, .minute, .second]
-    fileprivate var _calendarUnitDateOnly: Set<Calendar.Component> = [.year, .month, .day]
+    fileprivate var _calendarNameDateTime: Set<Calendar.Component> = [.year, .month, .weekOfYear, .weekday, .day, .hour, .minute, .second]
+    fileprivate var _calendarNameDateOnly: Set<Calendar.Component> = [.year, .month, .day]
     fileprivate var _timeZone = NSTimeZone.local
     
     // ============= private funcs
     
     fileprivate func _dateComponentsFromCurrentDate() -> DateComponents {
-        return _calendar.dateComponents(_calendarUnitDateTime, from: _date!)
+        return _calendar.dateComponents(_calendarNameDateTime, from: _date!)
     }
     
-    fileprivate func _dateComponentsFromCurrentDate(calendarUnit: Set<Calendar.Component>) -> DateComponents {
-        return _calendar.dateComponents(calendarUnit, from: _date!)
+    fileprivate func _dateComponentsFromCurrentDate(calendarName: Set<Calendar.Component>) -> DateComponents {
+        return _calendar.dateComponents(calendarName, from: _date!)
     }
     
     fileprivate func _dateByAddingComponentsToCurrentDate(_ components: DateComponents) -> Date? {
         if _date != nil {
-            return _calendar.date(byAdding: components, to: _date!, wrappingComponents: true)
+            return _calendar.date(byAdding: components, to: _date!, wrappingComponents: false)
         }
         
         return _date
@@ -190,7 +192,7 @@ class NVDate: NSObject {
     
     func setTimeAsZero() -> NVDate {
         if _date != nil {
-            var components = _dateComponentsFromCurrentDate(calendarUnit: _calendarUnitDateOnly)
+            var components = _dateComponentsFromCurrentDate(calendarName: _calendarNameDateOnly)
             components.hour = 0
             components.minute = 0
             components.second = 0
@@ -327,11 +329,11 @@ class NVDate: NSObject {
             
             components = DateComponents()
             components.month = 1
-            _date = _calendar.date(byAdding: components, to: _date!, wrappingComponents: true)
+            _date = _dateByAddingComponentsToCurrentDate(components)
             
             components = DateComponents()
             components.day = -1
-            _date = _calendar.date(byAdding: components, to: _date!, wrappingComponents: true)
+            _date = _dateByAddingComponentsToCurrentDate(components)
         }
         
         return self
@@ -340,7 +342,7 @@ class NVDate: NSObject {
     func firstMonthOfYear() -> NVDate {
         if _date != nil {
             var components = _dateComponentsFromCurrentDate()
-            components.month = MonthUnit.january.rawValue
+            components.month = MonthName.january.rawValue
             _date = _calendar.date(from: components)
         }
         
@@ -350,79 +352,118 @@ class NVDate: NSObject {
     func lastMonthOfYear() -> NVDate {
         if _date != nil {
             var components = _dateComponentsFromCurrentDate()
-            components.month = MonthUnit.december.rawValue
+            components.month = MonthName.december.rawValue
             _date = _calendar.date(from: components)
         }
         
         return self
     }
     
-    func nearestPreviousDay(_ dayUnit: DayUnit) -> NVDate {
+    func nearestPreviousDay(_ dayName: DayName) -> NVDate {
         if _date != nil {
             
             var components = _dateComponentsFromCurrentDate()
             if let currentWeekDay = components.weekday {
                 
-                if currentWeekDay == dayUnit.rawValue {
-                    return self.previousWeek()
+                if currentWeekDay == dayName.rawValue {
+                    return self.previousDay()
                 }
                 
                 components = DateComponents()
                 
-                if currentWeekDay > dayUnit.rawValue {
-                    components.day = -(currentWeekDay - dayUnit.rawValue)
+                if currentWeekDay > dayName.rawValue {
+                    components.day = -(currentWeekDay - dayName.rawValue)
                 } else {
-                    components.day = -currentWeekDay - (7 - dayUnit.rawValue)
+                    components.day = -currentWeekDay - (7 - dayName.rawValue)
                 }
                 
-                _date = _calendar.date(byAdding: components, to: _date!, wrappingComponents: true)
+                _date = _dateByAddingComponentsToCurrentDate(components)
             }
         }
         
         return self
     }
     
-    func nearestNextDay(_ dayUnit: DayUnit) -> NVDate {
+    func nearestNextDay(_ dayName: DayName) -> NVDate {
         if _date != nil {
             
             var components = _dateComponentsFromCurrentDate()
             if let currentWeekDay = components.weekday {
                 
-                if currentWeekDay == dayUnit.rawValue {
-                    return self.previousWeek()
+                if currentWeekDay == dayName.rawValue {
+                    return self.nextWeek()
                 }
                 
+//                if (currentWeekDay < dayUnit)
+//                dateComponents.day = dayUnit - currentWeekDay;
+//                else
+//                dateComponents.day = -currentWeekDay + dayUnit;
+//                
+//                _date = [_calendar dateByAddingComponents:dateComponents toDate:_date options:NSCalendarMatchStrictly];
+//                
                 components = DateComponents()
                 
-                if currentWeekDay < dayUnit.rawValue {
-                    components.day = dayUnit.rawValue - currentWeekDay
+                if currentWeekDay < dayName.rawValue {
+                    components.day = dayName.rawValue - currentWeekDay
                 } else {
-                    components.day = -currentWeekDay + dayUnit.rawValue
+                    components.day = -currentWeekDay + dayName.rawValue
                 }
                 
-                _date = _calendar.date(byAdding: components, to: _date!, wrappingComponents: true)
+                _date = _dateByAddingComponentsToCurrentDate(components)
             }
         }
         
         return self
     }
     
-    func isThisDay(_ dayUnit: DayUnit) -> Bool {
+    func thisDayName() -> DayName {
         if _date != nil {
             let components = _dateComponentsFromCurrentDate()
-            return components.weekday == dayUnit.rawValue
+            
+            for dayName in _dayNames {
+                if dayName.rawValue == components.weekday {
+                    return dayName
+                }
+            }
+        }
+        
+        return DayName.sunday
+    }
+    
+    func todayName() -> DayName {
+        return thisDayName()
+    }
+    
+    func isThisDayName(_ dayName: DayName) -> Bool {
+        if _date != nil {
+            let components = _dateComponentsFromCurrentDate()
+            return components.weekday == dayName.rawValue
         }
         
         return false
     }
     
-    func isToday(_ dayUnit: DayUnit) -> Bool {
-        return isThisDay(dayUnit)
+    func isTodayName(_ dayName: DayName) -> Bool {
+        return isThisDayName(dayName)
     }
     
-    func isThisMonth(_ monthUnit: MonthUnit) -> Bool {
+    func thisMonthName() -> MonthName {
+        if _date != nil {
+            let components = _dateComponentsFromCurrentDate()
+            
+            for monthName in _monthsNames {
+                if monthName.rawValue == components.month {
+                    return monthName
+                }
+            }
+        }
+        
+        return MonthName.january
+    }
+    
+    func isThisMonthName(_ monthName: MonthName) -> Bool {
         let components = _dateComponentsFromCurrentDate()
-        return components.month == monthUnit.rawValue
+        return components.month == monthName.rawValue
     }
     
     func year() -> Int {
