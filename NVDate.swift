@@ -42,7 +42,7 @@ class NVDate: NSObject {
     fileprivate var _date: Date?
     fileprivate var _dateFormatter: DateFormatter = DateFormatter()
     fileprivate var _calendar = Calendar.current
-    fileprivate var _calendarNameDateTime: Set<Calendar.Component> = [.year, .month, .weekOfYear, .weekday, .day, .hour, .minute, .second]
+    fileprivate var _calendarNameDateTime: Set<Calendar.Component> = [.year, .month, .weekOfYear, .weekOfMonth, .weekday, .day, .hour, .minute, .second]
     fileprivate var _calendarNameDateOnly: Set<Calendar.Component> = [.year, .month, .day]
     fileprivate var _timeZone = NSTimeZone.local
     
@@ -366,7 +366,7 @@ class NVDate: NSObject {
             if let currentWeekDay = components.weekday {
                 
                 if currentWeekDay == dayName.rawValue {
-                    return self.previousDay()
+                    return self.previousWeek()
                 }
                 
                 components = DateComponents()
@@ -394,19 +394,12 @@ class NVDate: NSObject {
                     return self.nextWeek()
                 }
                 
-//                if (currentWeekDay < dayUnit)
-//                dateComponents.day = dayUnit - currentWeekDay;
-//                else
-//                dateComponents.day = -currentWeekDay + dayUnit;
-//                
-//                _date = [_calendar dateByAddingComponents:dateComponents toDate:_date options:NSCalendarMatchStrictly];
-//                
                 components = DateComponents()
                 
                 if currentWeekDay < dayName.rawValue {
                     components.day = dayName.rawValue - currentWeekDay
                 } else {
-                    components.day = -currentWeekDay + dayName.rawValue
+                    components.day = 7 - (currentWeekDay - dayName.rawValue)
                 }
                 
                 _date = _dateByAddingComponentsToCurrentDate(components)
@@ -490,9 +483,14 @@ class NVDate: NSObject {
         _date = _calendar.date(from: components)
     }
     
-    func week() -> Int {
+    func weekOfYear() -> Int {
         let components = _dateComponentsFromCurrentDate()
         return components.weekOfYear!
+    }
+    
+    func weekOfMonth() -> Int {
+        let components = _dateComponentsFromCurrentDate()
+        return components.weekOfMonth!
     }
     
     func day() -> Int {
