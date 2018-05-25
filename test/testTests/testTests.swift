@@ -183,58 +183,58 @@ class exampleTests: XCTestCase {
 //        let nv1 = NVDate(year: 2018, month: 5, day: 25)
 //            .nearestNextDay(.saturday)
 //        XCTAssertEqual(nv1.day(), 26)
-//        
+//
 //        let nv2 = NVDate(year: 2018, month: 5, day: 25)
 //            .nearestNextDay(.sunday)
 //        XCTAssertEqual(nv2.day(), 27)
-//        
+//
 //        let nv3 = NVDate(year: 2018, month: 5, day: 25)
 //            .nearestNextDay(.monday)
 //        XCTAssertEqual(nv3.day(), 28)
-//        
+//
 //        let nv4 = NVDate(year: 2018, month: 5, day: 25)
 //            .nearestNextDay(.tuesday)
 //        XCTAssertEqual(nv4.day(), 29)
-//        
+//
 //        let nv5 = NVDate(year: 2018, month: 5, day: 25)
 //            .nearestNextDay(.wednesday)
 //        XCTAssertEqual(nv5.day(), 30)
-//        
+//
 //        let nv6 = NVDate(year: 2018, month: 5, day: 25)
 //            .nearestNextDay(.thursday)
 //        XCTAssertEqual(nv6.day(), 31)
-//        
+//
 //        let nv7 = NVDate(year: 2018, month: 5, day: 25)
 //            .nearestNextDay(.friday)
 //        XCTAssertEqual(nv7.month(), 6)
 //        XCTAssertEqual(nv7.day(), 1)
 //    }
-//    
+//
 //    func testNearestPreviousDay() {
 //        let nv1 = NVDate(year: 2018, month: 5, day: 25)
 //            .nearestPreviousDay(.thursday)
 //        XCTAssertEqual(nv1.day(), 24)
-//        
+//
 //        let nv2 = NVDate(year: 2018, month: 5, day: 25)
 //            .nearestPreviousDay(.wednesday)
 //        XCTAssertEqual(nv2.day(), 23)
-//        
+//
 //        let nv3 = NVDate(year: 2018, month: 5, day: 25)
 //            .nearestPreviousDay(.tuesday)
 //        XCTAssertEqual(nv3.day(), 22)
-//        
+//
 //        let nv4 = NVDate(year: 2018, month: 5, day: 25)
 //            .nearestPreviousDay(.monday)
 //        XCTAssertEqual(nv4.day(), 21)
-//        
+//
 //        let nv5 = NVDate(year: 2018, month: 5, day: 25)
 //            .nearestPreviousDay(.sunday)
 //        XCTAssertEqual(nv5.day(), 20)
-//        
+//
 //        let nv6 = NVDate(year: 2018, month: 5, day: 25)
 //            .nearestPreviousDay(.saturday)
 //        XCTAssertEqual(nv6.day(), 19)
-//        
+//
 //        let nv7 = NVDate(year: 2018, month: 5, day: 25)
 //            .nearestPreviousDay(.friday)
 //        XCTAssertEqual(nv7.day(), 18)
@@ -300,6 +300,110 @@ class exampleTests: XCTestCase {
         XCTAssertEqual(nv3.month(), 1)
     }
     
+    func testNextYear() {
+        let nv1 = NVDate(year: 2018, month: 5, day: 25)
+            .nextYear()
+        XCTAssertEqual(nv1.year(), 2019)
+        
+        let nv2 = NVDate(year: 2018, month: 5, day: 25)
+            .nextYear()
+            .nextYear()
+            .nextYear()
+        XCTAssertEqual(nv2.year(), 2021)
+    }
+    
+    func testNextYears() {
+        let nv1 = NVDate(year: 2018, month: 5, day: 25)
+            .nextYears(years: 0)
+        XCTAssertEqual(nv1.year(), 2018)
+        
+        let nv2 = NVDate(year: 2018, month: 5, day: 25)
+            .nextYears(years: 5)
+        XCTAssertEqual(nv2.year(), 2023)
+    }
+    
+    func testPreviousDay() {
+        let nv1 = NVDate(year: 2018, month: 5, day: 25)
+            .previousDay()
+        XCTAssertEqual(nv1.day(), 24)
+        
+        let nv2 = NVDate(year: 2018, month: 5, day: 25)
+            .previousDay()
+            .previousDay()
+            .previousDay()
+        XCTAssertEqual(nv2.day(), 22)
+    }
+    
+    func testPreviousDays() {
+        let nv1 = NVDate(year: 2018, month: 5, day: 25)
+            .previousDays(days: 0)
+        XCTAssertEqual(nv1.day(), 25)
+        
+        let nv2 = NVDate(year: 2018, month: 5, day: 25)
+            .previousDays(days: 1)
+        XCTAssertEqual(nv2.day(), 24)
+        
+        let nv3 = NVDate(year: 2018, month: 5, day: 25)
+            .previousDays(days: 14)
+        XCTAssertEqual(nv3.day(), 11)
+        
+        let nv4 = NVDate(year: 2018, month: 5, day: 25)
+            .previousDays(days: 34)
+        XCTAssertEqual(nv4.month(), 4)
+        XCTAssertEqual(nv4.day(), 21)
+    }
+    
+    func testPreviousMonth() {
+        let nv1 = NVDate(year: 2018, month: 5, day: 25)
+            .previousMonth()
+        XCTAssertEqual(nv1.month(), 4)
+        XCTAssertEqual(nv1.day(), 25)
+
+        let nv2 = NVDate(year: 2018, month: 5, day: 25)
+            .previousMonth()
+            .previousMonth()
+            .previousMonth()
+        XCTAssertEqual(nv2.month(), 2)
+    }
+
+    func testPreviousMonths() {
+        let nv1 = NVDate(year: 2018, month: 5, day: 25)
+            .previousMonths(months: 0)
+        XCTAssertEqual(nv1.month(), 5)
+        XCTAssertEqual(nv1.day(), 25)
+
+        let nv2 = NVDate(year: 2018, month: 5, day: 25)
+            .previousMonths(months: 1)
+        XCTAssertEqual(nv2.month(), 4)
+
+        let nv3 = NVDate(year: 2018, month: 5, day: 25)
+            .previousMonths(months: 8)
+        XCTAssertEqual(nv3.year(), 2017)
+        XCTAssertEqual(nv3.month(), 9)
+    }
+
+//    func testPreviousYear() {
+//        let nv1 = NVDate(year: 2018, month: 5, day: 25)
+//            .previousYear()
+//        XCTAssertEqual(nv1.year(), 2019)
+//
+//        let nv2 = NVDate(year: 2018, month: 5, day: 25)
+//            .previousYear()
+//            .previousYear()
+//            .previousYear()
+//        XCTAssertEqual(nv2.year(), 2021)
+//    }
+//
+//    func testPreviousYears() {
+//        let nv1 = NVDate(year: 2018, month: 5, day: 25)
+//            .previousYears(years: 0)
+//        XCTAssertEqual(nv1.year(), 2018)
+//
+//        let nv2 = NVDate(year: 2018, month: 5, day: 25)
+//            .previousYears(years: 5)
+//        XCTAssertEqual(nv2.year(), 2023)
+//    }
+    
 //    func testThisDayName() {
 //        let nv = NVDate(year: 2018, month: 5, day: 25)
 //
@@ -315,6 +419,5 @@ class exampleTests: XCTestCase {
     
     func testAsdf() {
         let nv = NVDate()
-        print("----", nv)
     }
 }
