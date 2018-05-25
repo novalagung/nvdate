@@ -12,7 +12,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let someday = NVDate()
+            .previousDay()
+            .previousWeek()
+            .nextDay()
+            .asString()
+        
+        print(someday)
+        // someday: 2013-12-08 17:03:36
     }
 
     override func didReceiveMemoryWarning() {

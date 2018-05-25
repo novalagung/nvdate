@@ -285,16 +285,16 @@ class exampleTests: XCTestCase {
     
     func testNextMonths() {
         let nv1 = NVDate(year: 2018, month: 5, day: 25)
-            .nextMonths(months: 0)
+            .nextMonths(diff: 0)
         XCTAssertEqual(nv1.month(), 5)
         XCTAssertEqual(nv1.day(), 25)
         
         let nv2 = NVDate(year: 2018, month: 5, day: 25)
-            .nextMonths(months: 1)
+            .nextMonths(diff: 1)
         XCTAssertEqual(nv2.month(), 6)
         
         let nv3 = NVDate(year: 2018, month: 5, day: 25)
-            .nextMonths(months: 8)
+            .nextMonths(diff: 8)
         XCTAssertEqual(nv3.year(), 2019)
         XCTAssertEqual(nv3.month(), 1)
     }
@@ -313,11 +313,11 @@ class exampleTests: XCTestCase {
     
     func testNextYears() {
         let nv1 = NVDate(year: 2018, month: 5, day: 25)
-            .nextYears(years: 0)
+            .nextYears(diff: 0)
         XCTAssertEqual(nv1.year(), 2018)
         
         let nv2 = NVDate(year: 2018, month: 5, day: 25)
-            .nextYears(years: 5)
+            .nextYears(diff: 5)
         XCTAssertEqual(nv2.year(), 2023)
     }
     
@@ -335,19 +335,19 @@ class exampleTests: XCTestCase {
     
     func testPreviousDays() {
         let nv1 = NVDate(year: 2018, month: 5, day: 25)
-            .previousDays(days: 0)
+            .previousDays(diff: 0)
         XCTAssertEqual(nv1.day(), 25)
         
         let nv2 = NVDate(year: 2018, month: 5, day: 25)
-            .previousDays(days: 1)
+            .previousDays(diff: 1)
         XCTAssertEqual(nv2.day(), 24)
         
         let nv3 = NVDate(year: 2018, month: 5, day: 25)
-            .previousDays(days: 14)
+            .previousDays(diff: 14)
         XCTAssertEqual(nv3.day(), 11)
         
         let nv4 = NVDate(year: 2018, month: 5, day: 25)
-            .previousDays(days: 34)
+            .previousDays(diff: 34)
         XCTAssertEqual(nv4.month(), 4)
         XCTAssertEqual(nv4.day(), 21)
     }
@@ -367,16 +367,16 @@ class exampleTests: XCTestCase {
 
     func testPreviousMonths() {
         let nv1 = NVDate(year: 2018, month: 5, day: 25)
-            .previousMonths(months: 0)
+            .previousMonths(diff: 0)
         XCTAssertEqual(nv1.month(), 5)
         XCTAssertEqual(nv1.day(), 25)
 
         let nv2 = NVDate(year: 2018, month: 5, day: 25)
-            .previousMonths(months: 1)
+            .previousMonths(diff: 1)
         XCTAssertEqual(nv2.month(), 4)
 
         let nv3 = NVDate(year: 2018, month: 5, day: 25)
-            .previousMonths(months: 8)
+            .previousMonths(diff: 8)
         XCTAssertEqual(nv3.year(), 2017)
         XCTAssertEqual(nv3.month(), 9)
     }
@@ -395,11 +395,11 @@ class exampleTests: XCTestCase {
 
     func testPreviousYears() {
         let nv1 = NVDate(year: 2018, month: 5, day: 25)
-            .previousYears(years: 0)
+            .previousYears(diff: 0)
         XCTAssertEqual(nv1.year(), 2018)
 
         let nv2 = NVDate(year: 2018, month: 5, day: 25)
-            .previousYears(years: 19)
+            .previousYears(diff: 19)
         XCTAssertEqual(nv2.year(), 1999)
     }
     

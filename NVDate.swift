@@ -251,64 +251,64 @@ class NVDate: NSObject {
         return nextDay()
     }
     
-    func previousDays(days: Int) -> NVDate {
-        return _dateByAddingDay(days: days, isForward: false)
+    func previousDays(diff: Int) -> NVDate {
+        return _dateByAddingDay(days: diff, isForward: false)
     }
     
     func previousDay() -> NVDate {
-        return previousDays(days: 1)
+        return previousDays(diff: 1)
     }
     
     func yesterday() -> NVDate {
         return previousDay()
     }
     
-    func nextWeeks(weeks: Int) -> NVDate {
-        return _dateByAddingWeek(weeks: weeks, isForward: true)
+    func nextWeeks(diff: Int) -> NVDate {
+        return _dateByAddingWeek(weeks: diff, isForward: true)
     }
     
     func nextWeek() -> NVDate {
-        return nextWeeks(weeks: 1)
+        return nextWeeks(diff: 1)
     }
     
-    func previousWeeks(weeks: Int) -> NVDate {
-        return _dateByAddingWeek(weeks: weeks, isForward: false)
+    func previousWeeks(diff: Int) -> NVDate {
+        return _dateByAddingWeek(weeks: diff, isForward: false)
     }
     
     func previousWeek() -> NVDate {
-        return previousWeeks(weeks: 1)
+        return previousWeeks(diff: 1)
     }
     
-    func nextMonths(months: Int) -> NVDate {
-        return _dateByAddingMonth(months: months, isForward: true)
+    func nextMonths(diff: Int) -> NVDate {
+        return _dateByAddingMonth(months: diff, isForward: true)
     }
     
     func nextMonth() -> NVDate {
-        return nextMonths(months: 1)
+        return nextMonths(diff: 1)
     }
     
-    func previousMonths(months: Int) -> NVDate {
-        return _dateByAddingMonth(months: months, isForward: false)
+    func previousMonths(diff: Int) -> NVDate {
+        return _dateByAddingMonth(months: diff, isForward: false)
     }
     
     func previousMonth() -> NVDate {
-        return previousMonths(months: 1)
+        return previousMonths(diff: 1)
     }
     
-    func nextYears(years: Int) -> NVDate {
-        return _dateByAddingYear(years: years, isForward: true)
+    func nextYears(diff: Int) -> NVDate {
+        return _dateByAddingYear(years: diff, isForward: true)
     }
     
     func nextYear() -> NVDate {
-        return nextYears(years: 1)
+        return nextYears(diff: 1)
     }
     
-    func previousYears(years: Int) -> NVDate {
-        return _dateByAddingYear(years: years, isForward: false)
+    func previousYears(diff: Int) -> NVDate {
+        return _dateByAddingYear(years: diff, isForward: false)
     }
     
     func previousYear() -> NVDate {
-        return previousYears(years: 1)
+        return previousYears(diff: 1)
     }
     
     func firstDayOfMonth() -> NVDate {

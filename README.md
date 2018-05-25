@@ -53,120 +53,61 @@ Then import `NVdate.h` into your .h or .m file.
 Simple Example
 ======
     
-### Full date of today
-
-##### Swift4
+### Today date as string
 
 ```swift
-let date = NVDate(useTodayDate: true)
+let date = NVDate()
 
-print("today is:", date.stringValue())
-// today is: Wednesday, February 5, 2014, 4:56:35 PM Western Indonesia Time
-```
-
-##### Objective-C
-
-```objectivec
-NVDate *date = [[NVDate alloc] initUsingToday];
- 
-NSLog(@"today is: %@", [date stringValue]);
-// today is: Wednesday, February 5, 2014, 4:56:35 PM Western Indonesia Time
+print(date.asString())
+// ==> Wednesday, February 5, 2014, 4:56:35 PM Western Indonesia Time
 ```
 
 ### Last day of next 2 months
 
-##### Swift4
-
 ```swift
-let date = NVDate(useTodayDate: true)
-    .nextMonths(2)
+let date = NVDate()
+    .nextMonths(diff: 2)
     .lastDayOfMonth()
 
-print("next 2 months from today is:", date.stringValue(dateFormat: "dd-MM-yyyy"))
-// next 2 months from today is: 30-04-2014
-```
-
-##### Objective-C
-
-```objectivec
-NVDate *date = [[NVDate alloc] initUsingToday];
-[date nextMonths:2];
-[date lastDayOfMonth];
-
-NSLog(@"next 2 months from today is: %@", [date stringValueWithFormat:@"dd-MM-yyyy"]);
-// next 2 months from today is: 30-04-2014
+print(date.asString(withFormat: "dd-MM-yyyy"))
+// ==> 30-04-2014
 ```
 
 ### Second week of 2 months ago
 
-##### Swift4
-
 ```swift
-let date = NVDate(useTodayDate: true)
-    .previousMonths(2)
+let date = NVDate()
+    .previousMonths(diff: 2)
     .firstDayOfMonth()
     .nextWeek()
-date.dateFormatUsingString = "yyyy-MM-dd HH:mm:ss"
+date.dateFormat(setFormat: "yyyy-MM-dd HH:mm:ss")
 
-print("second week of 2 months ago is:", date.stringValue())
-// second week of 2 months ago is: 2013-12-08 17:03:36
+print(date.asString())
+// ==> 2013-12-08 17:03:36
 ```
 
-##### Objective-C
-
-```objectivec
-NVDate *date = [[[[[NVDate alloc] initUsingToday] previousMonths:2] firstDayOfMonth] nextWeek];
-date.dateFormatUsingString = @"yyyy-MM-dd HH:mm:ss";
-
-NSLog(@"second week of 2 months ago is: %@", [date stringValue]);
-// second week of 2 months ago is: 2013-12-08 17:03:36
-```
-
-### Detect if yesterday is friday
-
-##### Swift4
+### Detect if 2018/05/25 is friday
 
 ```swift
-let isFriday = NVDate(useTodayDate: true)
+let todayIsFriday = NVDate(year: 2018, month: 5, day: 25)
     .previousDay()
-    .isCurrentDayName(.Friday)
+    .isTodayName(.friday)
 
-print("is yesterday was friday?", isFriday ? "yes" : "no")
-// is yesterday was friday? no
-```
-
-##### Objective-C
-
-```objectivec
-BOOL isFriday = [[[[NVDate alloc] initUsingToday] previousDay] isCurrentDayName:NVDayUnitFriday];
-
-NSLog(@"is yesterday was friday? %@", isFriday ? @"yes" : @"no");
-// is yesterday was friday? no
+print(todayIsFriday)
+// ==> false
 ```
 
 ### Dot syntax
 
-##### Swift4
-
 ```swift
-let someday = NVDate(useTodayDate: true)
+let someday = NVDate()
     .previousDay()
     .previousWeek()
     .nextDay()
-    .stringValue()
+    .asString()
 
-print("someday:", someday)
-// someday: 2013-12-08 17:03:36
-```
-
-##### Objective-C
-
-```objectivec
-NVDate *nvDate = [[NVDate alloc] initUsingToday];
-NSString someday = nvDate.previousDay.previousWeek.nextDay.stringValue;
-
-NSLog(@"someday: %@", someday);
-// someday: 2013-12-08 17:03:36
+print(someday)
+// ==> 2013-12-08 17:03:36
 ```
 
 Documentation
