@@ -1,7 +1,10 @@
 Introduction
 ======
 
-<!-- [![Version](http://img.shields.io/cocoapods/v/NVDate.svg)](http://cocoadocs.org/docsets/NVDate) -->
+[![Build Status](https://travis-ci.org/novalagung/nvdate.svg?branch=master)](https://travis-ci.org/novalagung/nvdate)
+![CocoaPods](https://img.shields.io/cocoapods/v/NVDate.svg)
+![CocoaPods](https://img.shields.io/cocoapods/dt/NVDate.svg)
+
 
 __NVDate__ is an extension of `NSDate` class (Swift4), created to make date and time manipulation easier.
 
