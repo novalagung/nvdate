@@ -127,9 +127,9 @@ API Documentation
 Initialization | Description
 --- | ---
 `NVDate()` | Today date is used as date value
-`NVDate(fromString: String, withFormat: String)` | Use specified date string as date value. Format of specified date string has to be explicitly defined.
-`NVDate(year: Int, month: Int, day: Int)` | Construct new date using year, month, and day
-`NVDate(year: Int, month: Int, day: Int, hour: Int, minute: Int, second: Int):` | Construct new date using year, month, day, hour, minute, second
+`NVDate(fromString:withFormat:)` | Use specified date string as date value. Format of specified date string has to be explicitly defined.
+`NVDate(year:month:day:)` | Construct new date using year, month, and day
+`NVDate(year:month:day:hour:minute:second:):` | Construct new date using year, month, day, hour, minute, second
 `NVDate(fromDate: Date)` | use specified date as value
 
 #### Methods
@@ -138,60 +138,60 @@ Method | Description
 --- | ---
 `date()` | return the date object
 `asString()` | return string formatted of date object
-`asString(withFormat: String)` | return formatted string value of date object. the format has to be defined explicitly
+`asString(withFormat:)` | return formatted string value of date object. the format has to be defined explicitly
 `setTimeAsZero()` | set hour, minute, and second as 0
 `dateFormat()` | return the current date format. the format is used on `asString()`
-`dateFormat(setFormat: String)` | change current date format. the format is used on `asString()`
+`dateFormat(setFormat:)` | change current date format. the format is used on `asString()`
 `dateStyle()` | return the date style of current formatter
-`dateStyle(setStyle: DateFormatter.Style)` | change date style of current formatter
+`dateStyle(setStyle:)` | change date style of current formatter
 `timeStyle()` | return the time style of current formatter
-`timeStyle(setStyle: DateFormatter.Style)` | change time style of current formatter
+`timeStyle(setStyle:)` | change time style of current formatter
 `timeZone()` | return current timezone value
-`timeZone(setTimeZone: TimeZone)` | change the timezone value
-`nextDays(days: Int)` | move to next __x__ days
+`timeZone(setTimeZone:)` | change the timezone value
+`nextDays(days:)` | move to next __x__ days
 `nextDay()` | move to next day
 `tomorrow()` | alias of `nextDay()`
-`previousDays(days: Int)` | move to previous __x__ days
+`previousDays(days:)` | move to previous __x__ days
 `previousDay()` | move to previous day
 `yesterday()` | alias of `previousDay()`
 `nextWeek()` | move to next week
-`nextWeeks(diff: Int)` | move to next __x__ weeks
+`nextWeeks(diff:)` | move to next __x__ weeks
 `previousWeek()` | move to previous week
-`previousWeeks(diff: Int)` | move to previous __x__ weeks
+`previousWeeks(diff:)` | move to previous __x__ weeks
 `nextMonth()` | move to next month
-`nextMonths(diff: Int)` | move to next __x__ months
+`nextMonths(diff:)` | move to next __x__ months
 `previousMonth()` | move to previous month
-`previousMonths(diff: Int)` | move to previous __x__ months
+`previousMonths(diff:)` | move to previous __x__ months
 `nextYear()` | move to next year
-`nextYears(diff: Int)` | move to next __x__ years
+`nextYears(diff:)` | move to next __x__ years
 `previousYear()` | move to previous year
-`previousYears(diff: Int)` | move to previous __x__ years
+`previousYears(diff:)` | move to previous __x__ years
 `firstDayOfMonth()` | move to first day of current month
 `lastDayOfMonth()` | move to last day of current month
 `firstMonthOfYear()` | move to first month of current year
 `lastMonthOfYear()` | move to last month of current year
-`nearestPreviousDay(_ dayName: DayName)` | move to __x__ previous day that name equal to `NVDate.DayName`
-`nearestNextDay(_ dayName: DayName)` | move to __x__ next day that name equal to `NVDate.DayName`
+`nearestPreviousDay(_:)` | move to __x__ previous day that name equal to `NVDate.DayName`
+`nearestNextDay(_:)` | move to __x__ next day that name equal to `NVDate.DayName`
 `thisDayName()` | get today day name, in type `NVDate.DayName`
 `todayName()` | alias of `thisDayName()`
-`isThisDayName(_ dayName: DayName)` | return true if specified day name is equal with day on the object
-`isTodayName(_ dayName: DayName)` | alias of `isThisDayName(_ dayName: DayName)`
+`isThisDayName(_:)` | return true if specified day name is equal with day on the object
+`isTodayName(_:)` | alias of `isThisDayName(_:)`
 `thisMonthName()` | get this month name, in type `NVDate.MonthName`
-`isThisMonthName(_ monthName: MonthName)` | return true if specified month name is equal with month on the object
+`isThisMonthName(_:)` | return true if specified month name is equal with month on the object
 `year()` | return year value
-`year(setYear: Int)` | change year value
+`year(setYear:)` | change year value
 `month()` | return month value
-`month(setMonth: Int)` | change month value
+`month(setMonth:)` | change month value
 `weekOfYear()` | return week of year value
 `weekOfMonth()` | return week of month value
 `day()` | return day value
-`day(setDay: Int)` | change day value
+`day(setDay:)` | change day value
 `hour()` | return hour value
-`hour(setHour: Int)` | change hour value
+`hour(setHour:)` | change hour value
 `minute()` | return minute value
-`minute(setMinute: Int)` | change minute value
+`minute(setMinute:)` | change minute value
 `second()` | return second value
-`second(setSecond: Int)` | change second value
+`second(setSecond:)` | change second value
 
 
 Contribution
