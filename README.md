@@ -1,6 +1,6 @@
 # Introduction
 
-__NVDate__ is a Swift date utility library for Swift projects, created to make date and time manipulation easier. __NVDate__ is testable and robust, we wrote extensive tests to make sure everything is safe.
+__NVDate__ is a Swift Date utility library, created to make date and time manipulation easier.
 
 [![Release](https://img.shields.io/github/v/release/novalagung/nvdate)](https://github.com/novalagung/nvdate/releases)
 [![Build](https://img.shields.io/github/actions/workflow/status/novalagung/nvdate/test.yml?branch=master&label=build)](https://github.com/novalagung/nvdate/actions/workflows/test.yml)

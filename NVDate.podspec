@@ -5,10 +5,11 @@ Pod::Spec.new do |spec|
   spec.authors           = { 'Noval Agung Prayogo' => 'caknopal@gmail.com' }
   spec.license           = { :type => 'MIT', :file => 'LICENSE' }
   spec.homepage          = 'https://github.com/novalagung/NVDate'
+  spec.readme            = "https://raw.githubusercontent.com/novalagung/NVDate/#{spec.version}/README.md"
   spec.source            = { :git => 'https://github.com/novalagung/NVDate.git', :tag => '3.0.0' }
-  spec.summary           = 'Swift Date extension library'
+  spec.summary           = 'Swift Date utility library'
   spec.description       = <<-DESC
-                             **NVDate** is an extension of swift Date class, created to make date and time manipulation easier.
+                             **NVDate** is a Swift Date utility library, created to make date and time manipulation easier.
                            DESC
   spec.documentation_url = 'https://github.com/novalagung/NVDate/wiki/API-Reference'
   spec.source_files      = 'NVDate.swift'
