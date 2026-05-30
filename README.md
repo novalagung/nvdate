@@ -2,9 +2,9 @@
 
 __NVDate__ is a Swift date utility library for Swift projects, created to make date and time manipulation easier. __NVDate__ is testable and robust, we wrote extensive tests to make sure everything is safe.
 
-[![Release](https://img.shields.io/github/v/release/novalagung/NVDate)](https://github.com/novalagung/NVDate/releases)
-[![Build](https://img.shields.io/github/actions/workflow/status/novalagung/NVDate/test.yml?branch=master&label=build)](https://github.com/novalagung/NVDate/actions/workflows/test.yml)
-[![Coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/novalagung/NVDate/master/coverage.json)](https://github.com/novalagung/NVDate/actions/workflows/test.yml)
+[![Release](https://img.shields.io/github/v/release/novalagung/nvdate)](https://github.com/novalagung/nvdate/releases)
+[![Build](https://img.shields.io/github/actions/workflow/status/novalagung/nvdate/test.yml?branch=master&label=build)](https://github.com/novalagung/nvdate/actions/workflows/test.yml)
+[![Coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/novalagung/nvdate/master/coverage.json)](https://github.com/novalagung/nvdate/actions/workflows/test.yml)
 
 ## Features
 
