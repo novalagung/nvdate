@@ -51,7 +51,7 @@ import NVDate
 Add these into your `Podfile`:
 
 ```ruby
-pod 'NVDate', '1.0.0'
+pod 'NVDate', :git => 'https://github.com/novalagung/NVDate.git', :tag => '1.0.1'
 ```
 
 Then import `NVdate.h` into your .h or .m file.
