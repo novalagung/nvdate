@@ -311,7 +311,7 @@
     if (currentWeekDay < dayUnit)
         dateComponents.day = dayUnit - currentWeekDay;
     else
-        dateComponents.day = -currentWeekDay + dayUnit;
+        dateComponents.day = 7 - (currentWeekDay - dayUnit);
     
     _date = [_calendar dateByAddingComponents:dateComponents toDate:_date options:NSCalendarMatchStrictly];
     
