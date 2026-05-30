@@ -12,7 +12,7 @@
 		C461051920B7A523000041AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C461051720B7A523000041AE /* Main.storyboard */; };
 		C461051B20B7A523000041AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C461051A20B7A523000041AE /* Assets.xcassets */; };
 		C461051E20B7A523000041AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C461051C20B7A523000041AE /* LaunchScreen.storyboard */; };
-		C461052920B7A524000041AE /* testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C461052820B7A524000041AE /* testTests.swift */; };
+		C461052920B7A524000041AE /* NVDateExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C461052820B7A524000041AE /* NVDateExampleTests.swift */; };
 		C461054220B7A546000041AE /* NVDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C461054120B7A546000041AE /* NVDate.swift */; };
 /* End PBXBuildFile section */
 
@@ -22,22 +22,22 @@
 			containerPortal = C461050820B7A523000041AE /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = C461050F20B7A523000041AE;
-			remoteInfo = test;
+			remoteInfo = NVDateExample;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C461051020B7A523000041AE /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C461051020B7A523000041AE /* NVDateExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NVDateExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C461051320B7A523000041AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C461051520B7A523000041AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C461051820B7A523000041AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C461051A20B7A523000041AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C461051D20B7A523000041AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C461051F20B7A523000041AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C461052420B7A524000041AE /* testTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C461052820B7A524000041AE /* testTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testTests.swift; sourceTree = "<group>"; };
+		C461052420B7A524000041AE /* NVDateExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NVDateExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C461052820B7A524000041AE /* NVDateExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NVDateExampleTests.swift; sourceTree = "<group>"; };
 		C461052A20B7A524000041AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C461054120B7A546000041AE /* NVDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NVDate.swift; path = ../../NVDate.swift; sourceTree = "<group>"; };
+		C461054120B7A546000041AE /* NVDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NVDate.swift; path = ../../../NVDate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +61,8 @@
 		C461050720B7A523000041AE = {
 			isa = PBXGroup;
 			children = (
-				C461051220B7A523000041AE /* test */,
-				C461052720B7A524000041AE /* testTests */,
+				C461051220B7A523000041AE /* NVDateExample */,
+				C461052720B7A524000041AE /* NVDateExampleTests */,
 				C461051120B7A523000041AE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,13 +70,13 @@
 		C461051120B7A523000041AE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C461051020B7A523000041AE /* test.app */,
-				C461052420B7A524000041AE /* testTests.xctest */,
+				C461051020B7A523000041AE /* NVDateExample.app */,
+				C461052420B7A524000041AE /* NVDateExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C461051220B7A523000041AE /* test */ = {
+		C461051220B7A523000041AE /* NVDateExample */ = {
 			isa = PBXGroup;
 			children = (
 				C461054120B7A546000041AE /* NVDate.swift */,
@@ -87,24 +87,24 @@
 				C461051C20B7A523000041AE /* LaunchScreen.storyboard */,
 				C461051F20B7A523000041AE /* Info.plist */,
 			);
-			path = test;
+			path = NVDateExample;
 			sourceTree = "<group>";
 		};
-		C461052720B7A524000041AE /* testTests */ = {
+		C461052720B7A524000041AE /* NVDateExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				C461052820B7A524000041AE /* testTests.swift */,
+				C461052820B7A524000041AE /* NVDateExampleTests.swift */,
 				C461052A20B7A524000041AE /* Info.plist */,
 			);
-			path = testTests;
+			path = NVDateExampleTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C461050F20B7A523000041AE /* test */ = {
+		C461050F20B7A523000041AE /* NVDateExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C461053820B7A524000041AE /* Build configuration list for PBXNativeTarget "test" */;
+			buildConfigurationList = C461053820B7A524000041AE /* Build configuration list for PBXNativeTarget "NVDateExample" */;
 			buildPhases = (
 				C461050C20B7A523000041AE /* Sources */,
 				C461050D20B7A523000041AE /* Frameworks */,
@@ -114,14 +114,14 @@
 			);
 			dependencies = (
 			);
-			name = test;
-			productName = test;
-			productReference = C461051020B7A523000041AE /* test.app */;
+			name = NVDateExample;
+			productName = NVDateExample;
+			productReference = C461051020B7A523000041AE /* NVDateExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C461052320B7A524000041AE /* testTests */ = {
+		C461052320B7A524000041AE /* NVDateExampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C461053B20B7A524000041AE /* Build configuration list for PBXNativeTarget "testTests" */;
+			buildConfigurationList = C461053B20B7A524000041AE /* Build configuration list for PBXNativeTarget "NVDateExampleTests" */;
 			buildPhases = (
 				C461052020B7A524000041AE /* Sources */,
 				C461052120B7A524000041AE /* Frameworks */,
@@ -132,9 +132,9 @@
 			dependencies = (
 				C461052620B7A524000041AE /* PBXTargetDependency */,
 			);
-			name = testTests;
-			productName = testTests;
-			productReference = C461052420B7A524000041AE /* testTests.xctest */;
+			name = NVDateExampleTests;
+			productName = NVDateExampleTests;
+			productReference = C461052420B7A524000041AE /* NVDateExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -143,8 +143,8 @@
 		C461050820B7A523000041AE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastSwiftUpdateCheck = 2630;
+				LastUpgradeCheck = 2630;
 				ORGANIZATIONNAME = "Noval Agung Prayogo";
 				TargetAttributes = {
 					C461050F20B7A523000041AE = {
@@ -158,8 +158,8 @@
 					};
 				};
 			};
-			buildConfigurationList = C461050B20B7A523000041AE /* Build configuration list for PBXProject "test" */;
-			compatibilityVersion = "Xcode 8.0";
+			buildConfigurationList = C461050B20B7A523000041AE /* Build configuration list for PBXProject "NVDateExample" */;
+			compatibilityVersion = "Xcode 16.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -171,8 +171,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C461050F20B7A523000041AE /* test */,
-				C461052320B7A524000041AE /* testTests */,
+				C461050F20B7A523000041AE /* NVDateExample */,
+				C461052320B7A524000041AE /* NVDateExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -212,7 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C461052920B7A524000041AE /* testTests.swift in Sources */,
+				C461052920B7A524000041AE /* NVDateExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +221,7 @@
 /* Begin PBXTargetDependency section */
 		C461052620B7A524000041AE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C461050F20B7A523000041AE /* test */;
+			target = C461050F20B7A523000041AE /* NVDateExample */;
 			targetProxy = C461052520B7A524000041AE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -294,7 +294,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -345,7 +345,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -359,11 +359,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8KLL93A755;
-				INFOPLIST_FILE = test/Info.plist;
+				INFOPLIST_FILE = NVDateExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.novalagung.nvdate.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.novalagung.nvdate.NVDateExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -374,11 +374,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8KLL93A755;
-				INFOPLIST_FILE = test/Info.plist;
+				INFOPLIST_FILE = NVDateExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.novalagung.nvdate.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.novalagung.nvdate.NVDateExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -390,13 +390,13 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8KLL93A755;
-				INFOPLIST_FILE = testTests/Info.plist;
+				INFOPLIST_FILE = NVDateExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.novalagung.nvdate.testTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.novalagung.nvdate.NVDateExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/test.app/test";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NVDateExample.app/NVDateExample";
 			};
 			name = Debug;
 		};
@@ -407,20 +407,20 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8KLL93A755;
-				INFOPLIST_FILE = testTests/Info.plist;
+				INFOPLIST_FILE = NVDateExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.novalagung.nvdate.testTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.novalagung.nvdate.NVDateExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/test.app/test";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NVDateExample.app/NVDateExample";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C461050B20B7A523000041AE /* Build configuration list for PBXProject "test" */ = {
+		C461050B20B7A523000041AE /* Build configuration list for PBXProject "NVDateExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C461053620B7A524000041AE /* Debug */,
@@ -429,7 +429,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C461053820B7A524000041AE /* Build configuration list for PBXNativeTarget "test" */ = {
+		C461053820B7A524000041AE /* Build configuration list for PBXNativeTarget "NVDateExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C461053920B7A524000041AE /* Debug */,
@@ -438,7 +438,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C461053B20B7A524000041AE /* Build configuration list for PBXNativeTarget "testTests" */ = {
+		C461053B20B7A524000041AE /* Build configuration list for PBXNativeTarget "NVDateExampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C461053C20B7A524000041AE /* Debug */,

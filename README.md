@@ -1,12 +1,13 @@
 Introduction
 ======
 
-[![Build Status](https://travis-ci.org/novalagung/nvdate.svg?branch=master)](https://travis-ci.org/novalagung/nvdate)
+[![Test](https://github.com/novalagung/NVDate/actions/workflows/test.yml/badge.svg)](https://github.com/novalagung/NVDate/actions/workflows/test.yml)
+[![Coverage](https://codecov.io/gh/novalagung/NVDate/branch/master/graph/badge.svg)](https://codecov.io/gh/novalagung/NVDate)
 [![CocoaPods](https://img.shields.io/cocoapods/v/NVDate.svg)](https://cocoapods.org/pods/NVDate)
 ![CocoaPods](https://img.shields.io/cocoapods/dt/NVDate.svg)
 
 
-__NVDate__ is an extension of `NSDate` class (Swift4), created to make date and time manipulation easier. __NVDate__ is testable and robust, we wrote intensive test to make sure everything is safe.
+__NVDate__ is a Swift 6 compatible date utility for Swift projects, created to make date and time manipulation easier. __NVDate__ is testable and robust, we wrote intensive tests to make sure everything is safe.
 
 Features
 ======
@@ -20,17 +21,31 @@ Features
 Installation
 ======
 
+### Using Swift Package Manager
+
+Add this package URL in Xcode or your `Package.swift`:
+
+```swift
+.package(url: "https://github.com/novalagung/NVDate.git", from: "3.0.0")
+```
+
+Then add `NVDate` as a dependency of your target and import it:
+
+```swift
+import NVDate
+```
+
 ### Using Cocoa Pods
 
-##### Swift4
+##### Swift
 
 Add these into your `Podfile`:
 
 ```ruby
-pod 'NVDate', '2.0.1'
+pod 'NVDate', '3.0.0'
 ```
 
-Then import `NVdate` into your swift file.
+Then import `NVDate` into your swift file.
 
 ```swift
 import NVDate

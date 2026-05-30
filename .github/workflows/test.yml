@@ -1,0 +1,61 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  pull_request:
+
+jobs:
+  test-macos:
+    name: Test macOS
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run tests
+        run: swift test
+
+  test-linux:
+    name: Test Linux
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Swift
+        uses: swift-actions/setup-swift@v2
+        with:
+          swift-version: "6.0"
+
+      - name: Run tests
+        run: swift test
+
+  coverage:
+    name: Coverage
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run tests with coverage
+        run: swift test --enable-code-coverage
+
+      - name: Export coverage
+        run: |
+          xcrun llvm-cov export \
+            -format="lcov" \
+            .build/debug/NVDatePackageTests.xctest/Contents/MacOS/NVDatePackageTests \
+            -instr-profile .build/debug/codecov/default.profdata \
+            > coverage.lcov
+
+      - name: Upload coverage
+        uses: codecov/codecov-action@v4
+        with:
+          files: coverage.lcov
+          fail_ci_if_error: false

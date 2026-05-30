@@ -19,3 +19,7 @@ DerivedData
 
 #CocoaPods
 Pods
+
+# SwiftPM
+.build/
+coverage.lcov
