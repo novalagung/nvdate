@@ -4,6 +4,12 @@ import PackageDescription
 
 let package = Package(
     name: "NVDate",
+    platforms: [
+        .iOS(.v12),
+        .macOS(.v10_13),
+        .tvOS(.v12),
+        .watchOS(.v4),
+    ],
     products: [
         .library(
             name: "NVDate",
