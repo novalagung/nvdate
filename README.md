@@ -1,27 +1,22 @@
-Introduction
-======
+# Introduction
 
-[![Test](https://github.com/novalagung/NVDate/actions/workflows/test.yml/badge.svg)](https://github.com/novalagung/NVDate/actions/workflows/test.yml)
-[![Coverage](https://codecov.io/gh/novalagung/NVDate/branch/master/graph/badge.svg)](https://codecov.io/gh/novalagung/NVDate)
-[![CocoaPods](https://img.shields.io/cocoapods/v/NVDate.svg)](https://cocoapods.org/pods/NVDate)
-![CocoaPods](https://img.shields.io/cocoapods/dt/NVDate.svg)
+__NVDate__ is a Swift date utility library for Swift projects, created to make date and time manipulation easier. __NVDate__ is testable and robust, we wrote extensive tests to make sure everything is safe.
 
+[![Release](https://img.shields.io/github/v/release/novalagung/NVDate)](https://github.com/novalagung/NVDate/releases)
+[![Build](https://img.shields.io/github/actions/workflow/status/novalagung/NVDate/test.yml?branch=master&label=build)](https://github.com/novalagung/NVDate/actions/workflows/test.yml)
+[![Coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/novalagung/NVDate/master/coverage.json)](https://github.com/novalagung/NVDate/actions/workflows/test.yml)
 
-__NVDate__ is a Swift 6 compatible date utility for Swift projects, created to make date and time manipulation easier. __NVDate__ is testable and robust, we wrote intensive tests to make sure everything is safe.
+## Features
 
-Features
-======
-
-* Has lot of API function to make date and time manipulation easier and fun
-* Has user friendly naming convention
+* A lot of API functions to make date and time manipulation easier and fun
+* Self-explanatory & intuitive naming convention
 * NVDate functions are _chainable_
-* Very easy to use
+* Easy to use
 * Open Source!
 
-Installation
-======
+## Installation
 
-### Using Swift Package Manager
+#### ◉ Using Swift Package Manager
 
 Add this package URL in Xcode or your `Package.swift`:
 
@@ -35,23 +30,23 @@ Then add `NVDate` as a dependency of your target and import it:
 import NVDate
 ```
 
-### Using Cocoa Pods
+#### ◉ Using CocoaPods
 
-##### Swift
+Swift Package Manager is the recommended installation path for NVDate 3.0.0 and newer. CocoaPods support is kept for existing projects.
 
 Add these into your `Podfile`:
 
 ```ruby
-pod 'NVDate', '3.0.0'
+pod 'NVDate', :git => 'https://github.com/novalagung/NVDate.git', :tag => '3.0.0'
 ```
 
-Then import `NVDate` into your swift file.
+Then import `NVDate` into your Swift file.
 
 ```swift
 import NVDate
 ```
 
-##### Objective-C
+##### Legacy Objective-C
 
 Add these into your `Podfile`:
 
@@ -65,10 +60,9 @@ Then import `NVdate.h` into your .h or .m file.
 #import "NVDate.h"
 ```
 
-Simple Example
-======
+## Example
 
-### Today date as string
+##### ◉ Today date as string
 
 ```swift
 let date = NVDate()
@@ -77,7 +71,7 @@ print(date.asString())
 // ==> Wednesday, February 5, 2014, 4:56:35 PM Western Indonesia Time
 ```
 
-### Date 2018/05/25 as string
+##### ◉ Date 2018/05/25 as string
 
 ```swift
 let date = NVDate(fromString: "2018/05/25", withFormat: "yyyy/MM/dd")
@@ -86,7 +80,7 @@ print(date.asString())
 // ==> Friday, May 25, 2018, 00:00:00 AM Western Indonesia Time
 ```
 
-### Last day of next 2 months
+##### ◉ Last day of next 2 months
 
 ```swift
 let date = NVDate()
@@ -97,7 +91,7 @@ print(date.asString(withFormat: "dd-MM-yyyy"))
 // ==> 30-04-2014
 ```
 
-### Second week of 2 months ago
+##### ◉ Second week of 2 months ago
 
 ```swift
 let date = NVDate()
@@ -110,7 +104,7 @@ print(date.asString())
 // ==> 2013-12-08 17:03:36
 ```
 
-### Detect if 2018/05/25 is friday
+##### ◉ Detect if 2018/05/25 is friday
 
 ```swift
 let todayIsFriday = NVDate(year: 2018, month: 5, day: 25)
@@ -121,7 +115,7 @@ print(todayIsFriday)
 // ==> false
 ```
 
-### Dot syntax
+##### ◉ Dot syntax
 
 ```swift
 let someday = NVDate()
@@ -134,88 +128,101 @@ print(someday)
 // ==> 2013-12-08 17:03:36
 ```
 
-API Documentation
-======
+## API Documentation
 
-#### Initialization
+#### ◉ Types
 
-Initialization | Description
+Type | Values
 --- | ---
-`NVDate()` | Today date is used as date value
-`NVDate(fromString:withFormat:)` | Use specified date string as date value. Format of specified date string has to be explicitly defined.
-`NVDate(year:month:day:)` | Construct new date using year, month, and day
-`NVDate(year:month:day:hour:minute:second:)` | Construct new date using year, month, day, hour, minute, second
-`NVDate(fromDate:)` | use specified date as value
+`NVDate.DayName` | `.sunday`, `.monday`, `.tuesday`, `.wednesday`, `.thursday`, `.friday`, `.saturday`
+`NVDate.MonthName` | `.january`, `.february`, `.march`, `.april`, `.may`, `.june`, `.july`, `.august`, `.september`, `.october`, `.november`, `.december`
 
-#### Methods
+#### ◉ Initializers
 
-Method | Description
+Initializer | Description
 --- | ---
-`date()` | return the date object
-`asString()` | return string formatted of date object
-`asString(withFormat:)` | return formatted string value of date object. the format has to be defined explicitly
-`setTimeAsZero()` | set hour, minute, and second as 0
-`dateFormat()` | return the current date format. the format is used on `asString()`
-`dateFormat(setFormat:)` | change current date format. the format is used on `asString()`
-`dateStyle()` | return the date style of current formatter
-`dateStyle(setStyle:)` | change date style of current formatter
-`timeStyle()` | return the time style of current formatter
-`timeStyle(setStyle:)` | change time style of current formatter
-`timeZone()` | return current timezone value
-`timeZone(setTimeZone:)` | change the timezone value
-`nextDays(days:)` | move to next __x__ days
-`nextDay()` | move to next day
-`tomorrow()` | alias of `nextDay()`
-`previousDays(days:)` | move to previous __x__ days
-`previousDay()` | move to previous day
-`yesterday()` | alias of `previousDay()`
-`nextWeek()` | move to next week
-`nextWeeks(diff:)` | move to next __x__ weeks
-`previousWeek()` | move to previous week
-`previousWeeks(diff:)` | move to previous __x__ weeks
-`nextMonth()` | move to next month
-`nextMonths(diff:)` | move to next __x__ months
-`previousMonth()` | move to previous month
-`previousMonths(diff:)` | move to previous __x__ months
-`nextYear()` | move to next year
-`nextYears(diff:)` | move to next __x__ years
-`previousYear()` | move to previous year
-`previousYears(diff:)` | move to previous __x__ years
-`firstDayOfMonth()` | move to first day of current month
-`lastDayOfMonth()` | move to last day of current month
-`firstMonthOfYear()` | move to first month of current year
-`lastMonthOfYear()` | move to last month of current year
-`nearestPreviousDay(_:)` | move to __x__ previous day that name equal to `NVDate.DayName`
-`nearestNextDay(_:)` | move to __x__ next day that name equal to `NVDate.DayName`
-`thisDayName()` | get today day name, in type `NVDate.DayName`
-`todayName()` | alias of `thisDayName()`
-`isThisDayName(_:)` | return true if specified day name is equal with day on the object
-`isTodayName(_:)` | alias of `isThisDayName(_:)`
-`thisMonthName()` | get this month name, in type `NVDate.MonthName`
-`isThisMonthName(_:)` | return true if specified month name is equal with month on the object
-`year()` | return year value
-`year(setYear:)` | change year value
-`month()` | return month value
-`month(setMonth:)` | change month value
-`weekOfYear()` | return week of year value
-`weekOfMonth()` | return week of month value
-`day()` | return day value
-`day(setDay:)` | change day value
-`hour()` | return hour value
-`hour(setHour:)` | change hour value
-`minute()` | return minute value
-`minute(setMinute:)` | change minute value
-`second()` | return second value
-`second(setSecond:)` | change second value
+`NVDate()` | Constructs an instance using the current date and time.
+`NVDate(fromString: String, withFormat: String)` | Constructs an instance by parsing a string with an explicit date format.
+`NVDate(year: Int, month: Int, day: Int)` | Constructs an instance from year, month, and day components.
+`NVDate(year: Int, month: Int, day: Int, hour: Int, minute: Int, second: Int)` | Constructs an instance from full date and time components.
+`NVDate(fromDate: Date)` | Constructs an instance from an existing `Date`.
+`NVDate(fromTimeIntervalSinceReferenceDate: TimeInterval)` | Constructs an instance from a Foundation reference-date time interval.
 
+#### ◉ Formatting and Configuration
 
-Contribution
-======
+Method | Return | Description
+--- | --- | ---
+`date()` | `Date?` | Returns the underlying date value.
+`asString()` | `String` | Formats the date using the configured formatter.
+`asString(withFormat: String)` | `String` | Formats the date using the provided date format.
+`dateFormat()` | `String` | Returns the formatter's current date format.
+`dateFormat(setFormat: String)` | `Void` | Sets the formatter's date format.
+`dateStyle()` | `DateFormatter.Style` | Returns the formatter's date style.
+`dateStyle(setStyle: DateFormatter.Style)` | `Void` | Sets the formatter's date style.
+`timeStyle()` | `DateFormatter.Style` | Returns the formatter's time style.
+`timeStyle(setStyle: DateFormatter.Style)` | `Void` | Sets the formatter's time style.
+`timeZone()` | `TimeZone` | Returns the configured time zone.
+`timeZone(setTimeZone: TimeZone)` | `Void` | Sets the time zone used by the formatter and calendar.
+
+#### ◉ Date Arithmetic
+
+Method | Return | Description
+--- | --- | ---
+`setTimeAsZero()` | `NVDate` | Sets hour, minute, and second to `0`.
+`nextDays(days: Int)` | `NVDate` | Moves the date forward by the provided number of days.
+`nextDay()` | `NVDate` | Moves the date forward by one day.
+`tomorrow()` | `NVDate` | Alias of `nextDay()`.
+`previousDays(diff: Int)` | `NVDate` | Moves the date backward by the provided number of days.
+`previousDay()` | `NVDate` | Moves the date backward by one day.
+`yesterday()` | `NVDate` | Alias of `previousDay()`.
+`nextWeeks(diff: Int)` | `NVDate` | Moves the date forward by the provided number of weeks.
+`nextWeek()` | `NVDate` | Moves the date forward by one week.
+`previousWeeks(diff: Int)` | `NVDate` | Moves the date backward by the provided number of weeks.
+`previousWeek()` | `NVDate` | Moves the date backward by one week.
+`nextMonths(diff: Int)` | `NVDate` | Moves the date forward by the provided number of months.
+`nextMonth()` | `NVDate` | Moves the date forward by one month.
+`previousMonths(diff: Int)` | `NVDate` | Moves the date backward by the provided number of months.
+`previousMonth()` | `NVDate` | Moves the date backward by one month.
+`nextYears(diff: Int)` | `NVDate` | Moves the date forward by the provided number of years.
+`nextYear()` | `NVDate` | Moves the date forward by one year.
+`previousYears(diff: Int)` | `NVDate` | Moves the date backward by the provided number of years.
+`previousYear()` | `NVDate` | Moves the date backward by one year.
+`firstDayOfMonth()` | `NVDate` | Moves the date to the first day of its current month.
+`lastDayOfMonth()` | `NVDate` | Moves the date to the last day of its current month.
+`firstMonthOfYear()` | `NVDate` | Moves the date to January of its current year.
+`lastMonthOfYear()` | `NVDate` | Moves the date to December of its current year.
+`nearestPreviousDay(_ dayName: NVDate.DayName)` | `NVDate` | Moves the date to the nearest previous matching weekday.
+`nearestNextDay(_ dayName: NVDate.DayName)` | `NVDate` | Moves the date to the nearest next matching weekday.
+
+#### ◉ Date Information
+
+Method | Return | Description
+--- | --- | ---
+`thisDayName()` | `NVDate.DayName` | Returns the weekday name for the current date value.
+`todayName()` | `NVDate.DayName` | Alias of `thisDayName()`.
+`isThisDayName(_ dayName: NVDate.DayName)` | `Bool` | Returns whether the date's weekday matches the provided weekday.
+`isTodayName(_ dayName: NVDate.DayName)` | `Bool` | Alias of `isThisDayName(_:)`.
+`thisMonthName()` | `NVDate.MonthName` | Returns the month name for the current date value.
+`isThisMonthName(_ monthName: NVDate.MonthName)` | `Bool` | Returns whether the date's month matches the provided month.
+`year()` | `Int` | Returns the year component.
+`year(setYear: Int)` | `Void` | Sets the year component.
+`month()` | `Int` | Returns the month component.
+`month(setMonth: Int)` | `Void` | Sets the month component.
+`weekOfYear()` | `Int` | Returns the week-of-year component.
+`weekOfMonth()` | `Int` | Returns the week-of-month component.
+`day()` | `Int` | Returns the day component.
+`day(setDay: Int)` | `Void` | Sets the day component.
+`hour()` | `Int` | Returns the hour component.
+`hour(setHour: Int)` | `Void` | Sets the hour component.
+`minute()` | `Int` | Returns the minute component.
+`minute(setMinute: Int)` | `Void` | Sets the minute component.
+`second()` | `Int` | Returns the second component.
+`second(setSecond: Int)` | `Void` | Sets the second component.
+
+## Contribution
 
 Feel free to contribute by doing `fork` -> `pull request`
 
-
-License
-======
+## License
 
 http://novalagung.mit-license.org/

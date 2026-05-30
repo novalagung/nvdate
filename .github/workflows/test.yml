@@ -7,6 +7,9 @@ on:
       - main
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   test-macos:
     name: Test macOS
@@ -38,6 +41,8 @@ jobs:
   coverage:
     name: Coverage
     runs-on: macos-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout
@@ -46,16 +51,38 @@ jobs:
       - name: Run tests with coverage
         run: swift test --enable-code-coverage
 
-      - name: Export coverage
+      - name: Generate coverage badge endpoint
         run: |
-          xcrun llvm-cov export \
-            -format="lcov" \
+          profile="$(find .build -path '*/debug/*/default.profdata' -print -quit)"
+          coverage="$(
+            xcrun llvm-cov report \
             .build/debug/NVDatePackageTests.xctest/Contents/MacOS/NVDatePackageTests \
-            -instr-profile .build/debug/codecov/default.profdata \
-            > coverage.lcov
+            -instr-profile "$profile" \
+            | awk '/NVDate.swift/ { print $10 }'
+          )"
 
-      - name: Upload coverage
-        uses: codecov/codecov-action@v4
-        with:
-          files: coverage.lcov
-          fail_ci_if_error: false
+          if [ -z "$coverage" ]; then
+            echo "Unable to determine coverage for NVDate.swift"
+            exit 1
+          fi
+
+          awk -v coverage="$coverage" '
+            BEGIN {
+              value = coverage + 0
+              color = value >= 90 ? "brightgreen" : value >= 80 ? "green" : value >= 70 ? "yellowgreen" : value >= 60 ? "yellow" : value >= 50 ? "orange" : "red"
+              printf "{\n  \"schemaVersion\": 1,\n  \"label\": \"coverage\",\n  \"message\": \"%s\",\n  \"color\": \"%s\"\n}\n", coverage, color
+            }
+          ' > coverage.json
+
+      - name: Commit coverage badge endpoint
+        if: github.event_name == 'push'
+        run: |
+          if git diff --quiet -- coverage.json; then
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add coverage.json
+          git commit -m "Update coverage badge [skip ci]"
+          git push

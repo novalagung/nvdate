@@ -17,6 +17,7 @@ let package = Package(
             exclude: [
                 ".github",
                 ".gitignore",
+                "coverage.json",
                 "coverage.lcov",
                 "LICENSE",
                 "NVDate.podspec",
