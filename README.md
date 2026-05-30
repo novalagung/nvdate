@@ -17,12 +17,26 @@ Features
 Installation
 ======
 
+### Using Swift Package Manager
+
+Add this repository URL in Xcode:
+
+```text
+https://github.com/novalagung/NVDate.git
+```
+
+Then import the package in Objective-C:
+
+```objectivec
+#import <NVDate/NVDate.h>
+```
+
 ### Using Cocoa Pods
 
 Add these into your `Podfile` :
 
 ```ruby
-pod 'NVDate', '1.0.0'
+pod 'NVDate', '1.0.2'
 ```
 
 ### Manual Installation
