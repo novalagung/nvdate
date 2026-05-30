@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C461050F20B7A523000041AE"
-               BuildableName = "test.app"
-               BlueprintName = "test"
-               ReferencedContainer = "container:test.xcodeproj">
+               BuildableName = "NVDateExample.app"
+               BlueprintName = "NVDateExample"
+               ReferencedContainer = "container:NVDateExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,19 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C461052320B7A524000041AE"
-               BuildableName = "testTests.xctest"
-               BlueprintName = "testTests"
-               ReferencedContainer = "container:test.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C461052E20B7A524000041AE"
-               BuildableName = "testUITests.xctest"
-               BlueprintName = "testUITests"
-               ReferencedContainer = "container:test.xcodeproj">
+               BuildableName = "NVDateExampleTests.xctest"
+               BlueprintName = "NVDateExampleTests"
+               ReferencedContainer = "container:NVDateExample.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -54,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C461050F20B7A523000041AE"
-            BuildableName = "test.app"
-            BlueprintName = "test"
-            ReferencedContainer = "container:test.xcodeproj">
+            BuildableName = "NVDateExample.app"
+            BlueprintName = "NVDateExample"
+            ReferencedContainer = "container:NVDateExample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -78,9 +68,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C461050F20B7A523000041AE"
-            BuildableName = "test.app"
-            BlueprintName = "test"
-            ReferencedContainer = "container:test.xcodeproj">
+            BuildableName = "NVDateExample.app"
+            BlueprintName = "NVDateExample"
+            ReferencedContainer = "container:NVDateExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -97,9 +87,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C461050F20B7A523000041AE"
-            BuildableName = "test.app"
-            BlueprintName = "test"
-            ReferencedContainer = "container:test.xcodeproj">
+            BuildableName = "NVDateExample.app"
+            BlueprintName = "NVDateExample"
+            ReferencedContainer = "container:NVDateExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
